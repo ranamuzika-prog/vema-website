@@ -82,8 +82,56 @@ a{color:inherit}
   color: var(--accent);
   font-weight: 500;
 }
-.nav-menu a:hover{
+.nav-menu a{
+  position: relative;
+}
+
+.nav-menu a::after{
+  content:"";
+  position:absolute;
+  left:10px;
+  right:10px;
+  bottom:6px;
+  height:1px;
+  background: var(--accent);
+  opacity:0;
+  transform: scaleX(0.6);
+  transition: opacity .2s ease, transform .2s ease;
+}
+
+.nav-menu a:hover::after{
+  opacity:.6;
+  transform: scaleX(1);
+}
+
+.menu-more summary{
+  color: var(--accent);
+  font-weight: 500;
+}
+.menu-more summary:hover{
   background: var(--accent-soft);
+}
+
+.menu-more summary{
+  position: relative;
+}
+
+.menu-more summary::after{
+  content:"";
+  position:absolute;
+  left:10px;
+  right:10px;
+  bottom:6px;
+  height:1px;
+  background: var(--accent);
+  opacity:0;
+  transform: scaleX(0.6);
+  transition: opacity .2s ease, transform .2s ease;
+}
+
+.menu-more summary:hover::after{
+  opacity:.6;
+  transform: scaleX(1);
 }
 
 .lang-switch{display:flex; gap:8px; margin-left:8px}
