@@ -46,8 +46,8 @@ a{color:inherit}
   box-shadow: var(--shadow);
   font-weight:700;
 }
-.brand-title{font-weight:800; letter-spacing:.02em}
-.brand-subtitle{font-size:.9rem; color:var(--muted)}
+.brand-title{font-weight:750; letter-spacing:.01em}
+.brand-subtitle{font-size:.92rem; color:var(--muted)}
 
 .nav-toggle{
   display:none;
