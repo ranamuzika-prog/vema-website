@@ -1,8 +1,12 @@
 :root{
-  --bg: #fbfbf9;
-  --text: #141414;
-  --muted: #555;
-  --card: #ffffff;
+  --bg: #f7f4ee;          /* warm cream */
+  --card: #ffffff;       /* keep cards white */
+  --text: #1a1a1a;
+  --muted: #6b6b6b;
+
+  --accent: #8b1e1e;     /* deep institutional red */
+  --accent-soft: rgba(139, 30, 30, 0.08);
+
   --line: rgba(0,0,0,.12);
   --shadow: 0 10px 25px rgba(0,0,0,.06);
   --radius: 16px;
