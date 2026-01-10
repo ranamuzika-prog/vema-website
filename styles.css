@@ -46,8 +46,11 @@ a{color:inherit}
   box-shadow: var(--shadow);
   font-weight:700;
 }
-.brand-title{font-weight:750; letter-spacing:.01em}
-.brand-subtitle{font-size:.92rem; color:var(--muted)}
+.brand-subtitle{
+  font-size: .95rem;
+  color: var(--muted);
+  line-height: 1.2;
+}
 
 .nav-toggle{
   display:none;
