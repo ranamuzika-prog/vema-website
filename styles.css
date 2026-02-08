@@ -330,3 +330,33 @@ nav {
 nav a {
   text-align: center;
 }
+/* --- Logo image in top-left --- */
+header {
+  position: relative;
+}
+
+/* Keep brand area from taking weird space */
+.brand {
+  position: absolute;
+  top: 14px;
+  left: 24px;
+  margin: 0;
+}
+
+/* Make the link not look like a button */
+.brand-link {
+  display: block;
+  text-decoration: none;
+}
+
+/* Scale logo */
+.brand-link img {
+  height: 46px;
+  width: auto;
+  display: block;
+}
+
+/* Hide old text elements if any still exist somewhere */
+.logo, .brand-text {
+  display: none !important;
+}
