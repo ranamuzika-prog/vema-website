@@ -1,35 +1,55 @@
 <!doctype html>
-<html lang="en">
+<html lang="sr">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>VEMA — Partners & Sponsors</title>
-  <meta name="description" content="Partners and sponsors supporting VEMA — Vojvodinian Early Music Association." />
-  <link rel="stylesheet" href="../styles.css" />
+  <title>VEMA – Vojvođansko udruženje za ranu muziku</title>
+  <meta name="description" content="VEMA — Vojvođansko udruženje za ranu muziku. Koncerti, edukacija, istraživanje i projekti kulturnog nasleđa u Novom Sadu i Vojvodini." />
+  <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <div class="brand">
-        <div class="logo" aria-hidden="true">VEMA</div>
-        <div class="brand-text">
-          <div class="brand-title">VEMA</div>
-          <div class="brand-subtitle">Vojvodinian Early Music Association</div>
-        </div>
-      </div>
 
-      <nav class="nav" aria-label="Primary">
-        <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu">
-          ☰ <span class="sr-only">Menu</span>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- HEADER: banner image full width + nav below -->
+  <header class="site-header" id="top">
+    <div class="header-banner">
+      <a href="index.html" class="brand-link" aria-label="VEMA home">
+        <img src="assets/images/vema-logo.svg" alt="VEMA – Vojvođansko udruženje za ranu muziku">
+      </a>
+
+      <!-- Language flags: top-right, no boxes -->
+      <div class="lang-switch" role="group" aria-label="Language switcher">
+        <button class="lang-btn" data-lang="sr" type="button" aria-label="Srpski">
+          <span class="flag" aria-hidden="true">🇷🇸</span>
         </button>
-        <div class="nav-menu" id="navMenu">
-          <a href="../">Home</a>
-          <a href="../photos/">Photos</a>
-          <a href="../reconciliation/">Reconciliation</a>
-          <a href="./" aria-current="page">Partners</a>
-        </div>
-      </nav>
+        <button class="lang-btn" data-lang="en" type="button" aria-label="English">
+          <span class="flag" aria-hidden="true">🇬🇧</span>
+        </button>
+      </div>
     </div>
+
+    <nav class="nav" aria-label="Primary">
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu">
+        ☰ <span class="sr-only">Menu</span>
+      </button>
+
+      <div class="nav-menu" id="navMenu">
+<a href="./programs/">Programs</a>
+<a href="./early-music-day/">Early Music Day</a>
+<a href="./bridge-cantata/">Bridge Cantata</a>
+
+        <details class="menu-more">
+          <summary>Menu</summary>
+          <div class="menu-more-panel">
+            <a href="#partners">Partners</a>
+            <a href="#media">Media</a>
+            <a href="#support">Support</a>
+            <a href="#contact">Contact</a>
+          </div>
+        </details>
+      </div>
+    </nav>
   </header>
 
   <main class="section">
