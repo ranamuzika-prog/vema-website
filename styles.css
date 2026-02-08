@@ -204,8 +204,10 @@ label{ display:block; margin-bottom: 10px; }
 .nav a{
   color: var(--text);
   font-weight: 500;
-  text-decoration:none;
+  font-size: 17px;
+  letter-spacing: 0.04em;
 }
+
 .nav a:hover{ text-decoration: underline; }
 
 /* Mobile menu toggle (only shows on small screens) */
@@ -261,7 +263,7 @@ section:first-of-type{ border-top:none; }
    ========================================================= */
 
 .hero{
-  padding: 56px 0 56px 0;
+  padding: 80px 0 64px 0;
 }
 
 .hero-inner{
