@@ -3,22 +3,22 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>VEMA – Vojvođansko udruženje za ranu muziku</title>
-  <meta name="description" content="VEMA — Vojvođansko udruženje za ranu muziku. Koncerti, edukacija, istraživanje i projekti kulturnog nasleđa u Novom Sadu i Vojvodini." />
-  <link rel="stylesheet" href="styles.css" />
+  <title>Early Music Day | VEMA</title>
+  <meta name="description" content="Early Music Day in Novi Sad — residency, education, recording, and public concert." />
+  <link rel="stylesheet" href="/styles.css" />
 </head>
 
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- HEADER: banner image full width + nav below -->
+  <!-- SAME HEADER -->
   <header class="site-header" id="top">
     <div class="header-banner">
-      <a href="index.html" class="brand-link" aria-label="VEMA home">
-        <img src="assets/images/vema-logo.svg" alt="VEMA – Vojvođansko udruženje za ranu muziku">
+      <a href="/index.html" class="brand-link" aria-label="VEMA home">
+        <img src="/assets/images/vema-logo.svg"
+             alt="VEMA – Vojvodinian Early Music Association / Vojvođansko udruženje za ranu muziku">
       </a>
 
-      <!-- Language flags: top-right, no boxes -->
       <div class="lang-switch" role="group" aria-label="Language switcher">
         <button class="lang-btn" data-lang="sr" type="button" aria-label="Srpski">
           <span class="flag" aria-hidden="true">🇷🇸</span>
@@ -30,65 +30,71 @@
     </div>
 
     <nav class="nav" aria-label="Primary">
-      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu">
+      <button class="nav-toggle" id="navToggle"
+              aria-expanded="false" aria-controls="navMenu">
         ☰ <span class="sr-only">Menu</span>
       </button>
 
       <div class="nav-menu" id="navMenu">
-<a href="./programs/">Programs</a>
-<a href="./early-music-day/">Early Music Day</a>
-<a href="./bridge-cantata/">Bridge Cantata</a>
+        <a href="/programs/">Programs</a>
+        <a href="/early-music-day/">Early Music Day</a>
+        <a href="/bridge-cantata/">Bridge Cantata</a>
 
         <details class="menu-more">
           <summary>Menu</summary>
           <div class="menu-more-panel">
-            <a href="#partners">Partners</a>
-            <a href="#media">Media</a>
-            <a href="#support">Support</a>
-            <a href="#contact">Contact</a>
+            <a href="/partners/">Partners</a>
+            <a href="/#media">Media</a>
+            <a href="/#support">Support</a>
+            <a href="/#contact">Contact</a>
           </div>
         </details>
       </div>
     </nav>
   </header>
 
+  <main id="main">
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <h1>Early Music Day — Novi Sad</h1>
+          <p class="lead">
+            Rezidencija koja kombinuje istraživanje, probe, edukaciju, snimanje i javni koncert.
+          </p>
+        </div>
 
-<main class="container">
+        <div class="grid two">
+          <div class="panel">
+            <h2>2026 fokus</h2>
+            <p>
+              Projekat u saradnji sa gitaristom i lautistom <strong>Rafaelom Arjonom</strong>, uz rad sa lokalnim muzičarima, studentima i publikom.
+            </p>
+          </div>
 
-  <section class="section">
-    <h1>Early Music Day — Novi Sad</h1>
+          <div class="panel">
+            <h2>Šta se dešava</h2>
+            <ul class="bullets">
+              <li>Rezidencija i probe</li>
+              <li>Radionice i masterklasovi</li>
+              <li>Snimanje i dokumentacija</li>
+              <li>Javni koncert</li>
+              <li>Edukativni outreach</li>
+            </ul>
+          </div>
+        </div>
 
-    <p class="lead">
-      Early Music Day in Novi Sad is a special project combining artistic residency,
-      concerts, education, and research, created in collaboration with international artists.
-    </p>
+        <p class="note"><a class="link" href="/index.html#events">Back to events →</a></p>
+      </div>
+    </section>
+  </main>
 
-    <p>
-      The 2026 edition focuses on the work of guitarist and lutenist
-      <strong>Rafael Arjona</strong>, who will spend time in Novi Sad working with local musicians,
-      students, and audiences.
-    </p>
-  </section>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> VEMA</p>
+      <a class="link" href="/index.html">Back to home ↑</a>
+    </div>
+  </footer>
 
-  <section class="section">
-    <h2>What happens during Early Music Day</h2>
-    <ul class="bullets">
-      <li>Artistic residency and rehearsals</li>
-      <li>Workshops and masterclasses</li>
-      <li>Recording and documentation</li>
-      <li>Public concert</li>
-      <li>Educational outreach</li>
-    </ul>
-  </section>
-
-</main>
-
-<footer class="site-footer">
-  <div class="container footer-inner">
-    <p>© VEMA — Vojvodinian Early Music Association</p>
-  </div>
-</footer>
-
+  <script src="/script.js"></script>
 </body>
 </html>
-
