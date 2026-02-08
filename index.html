@@ -5,20 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>VEMA – Vojvođansko udruženje za ranu muziku</title>
   <meta name="description" content="VEMA — Vojvođansko udruženje za ranu muziku. Koncerti, edukacija, istraživanje i projekti kulturnog nasleđa u Novom Sadu i Vojvodini." />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="/styles.css" />
 </head>
 
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- HEADER: banner image full width + nav below -->
+  <!-- HEADER (SAME ON ALL PAGES) -->
   <header class="site-header" id="top">
+
+    <!-- TOP BANNER: logo + language -->
     <div class="header-banner">
-      <a href="index.html" class="brand-link" aria-label="VEMA home">
-        <img src="assets/images/vema-logo.svg" alt="VEMA – Vojvođansko udruženje za ranu muziku">
+      <a href="/index.html" class="brand-link" aria-label="VEMA home">
+        <img src="/assets/images/vema-logo.svg"
+             alt="VEMA – Vojvodinian Early Music Association / Vojvođansko udruženje za ranu muziku">
       </a>
 
-      <!-- Language flags: top-right, no boxes -->
       <div class="lang-switch" role="group" aria-label="Language switcher">
         <button class="lang-btn" data-lang="sr" type="button" aria-label="Srpski">
           <span class="flag" aria-hidden="true">🇷🇸</span>
@@ -29,59 +31,65 @@
       </div>
     </div>
 
+    <!-- NAVIGATION -->
     <nav class="nav" aria-label="Primary">
-      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu">
+      <button class="nav-toggle" id="navToggle"
+              aria-expanded="false" aria-controls="navMenu">
         ☰ <span class="sr-only">Menu</span>
       </button>
 
       <div class="nav-menu" id="navMenu">
-<a href="./programs/">Programs</a>
-<a href="./early-music-day/">Early Music Day</a>
-<a href="./bridge-cantata/">Bridge Cantata</a>
+        <a href="/programs/">Programs</a>
+        <a href="/early-music-day/">Early Music Day</a>
+        <a href="/bridge-cantata/">Bridge Cantata</a>
 
         <details class="menu-more">
           <summary>Menu</summary>
           <div class="menu-more-panel">
-            <a href="#partners">Partners</a>
-            <a href="#media">Media</a>
-            <a href="#support">Support</a>
-            <a href="#contact">Contact</a>
+            <a href="/partners/">Partners</a>
+            <a href="/#media">Media</a>
+            <a href="/#support">Support</a>
+            <a href="/#contact">Contact</a>
           </div>
         </details>
       </div>
     </nav>
+
   </header>
 
   <main id="main">
+
     <!-- HERO -->
     <section class="hero">
       <div class="container hero-inner">
         <div class="hero-copy">
-          <h1 data-i18n="heroTitle">Early music in Vojvodina — performed, taught, and shared.</h1>
-          <p class="lead" data-i18n="heroLead">
-            VEMA connects artists, audiences, and cultural heritage through concerts, education, and research-led projects in Novi Sad and beyond.
+          <h1>Rana muzika u Vojvodini — izvođena, podučavana i deljena.</h1>
+          <p class="lead">
+            VEMA povezuje umetnike, publiku i kulturno nasleđe kroz koncerte, edukaciju i projekte zasnovane na istraživanju u Novom Sadu i šire.
           </p>
+
           <div class="hero-cta">
-            <a class="btn primary" href="#events" data-i18n="heroBtnEvents">Upcoming events</a>
-            <a class="btn" href="#contact" data-i18n="heroBtnContact">Contact</a>
+            <a class="btn primary" href="#events">Najave</a>
+            <a class="btn" href="#contact">Kontakt</a>
           </div>
 
           <ul class="quick-facts">
-            <li><span data-i18n="fact1Label">Based in</span> <strong>Novi Sad</strong></li>
-            <li><span data-i18n="fact2Label">Focus</span> <strong data-i18n="fact2Value">Historically informed performance</strong></li>
-            <li><span data-i18n="fact3Label">Key programs</span> <strong>Dani Barokne Muzike · Novosadska Barokna Akademija</strong></li>
+            <li><span>Sedište</span> <strong>Novi Sad</strong></li>
+            <li><span>Fokus</span> <strong>Istorijski informisano izvođenje</strong></li>
+            <li><span>Ključni programi</span> <strong>Dani Barokne Muzike · Novosadska Barokna Akademija</strong></li>
           </ul>
         </div>
 
         <div class="hero-card">
           <div class="card">
-            <h2 data-i18n="heroCardTitle">Get updates</h2>
-            <p data-i18n="heroCardText">Subscribe for concert announcements and project news.</p>
+            <h2>Pratite novosti</h2>
+            <p>Prijavite se za najave koncerata i vesti o projektima.</p>
+
             <form class="form" onsubmit="return false;">
               <label class="sr-only" for="email">Email</label>
               <input id="email" type="email" placeholder="email@example.com" required />
-              <button class="btn primary" type="submit" data-i18n="heroCardBtn">Subscribe</button>
-              <p class="fineprint" data-i18n="heroCardFineprint">No spam. Unsubscribe anytime.</p>
+              <button class="btn primary" type="submit">Prijava</button>
+              <p class="fineprint">Bez spama. Odjava u bilo kom trenutku.</p>
             </form>
           </div>
         </div>
@@ -92,69 +100,33 @@
     <section id="about" class="section">
       <div class="container">
         <div class="section-head">
-          <h2 data-i18n="aboutTitle">About VEMA</h2>
-          <p data-i18n="aboutIntro">
-            Vojvodinian Early Music Association (VEMA) is a platform for historically informed performance and education, rooted in local heritage and connected to European networks.
+          <h2>O VEMA</h2>
+          <p>
+            Vojvođansko udruženje za ranu muziku (VEMA) je platforma za istorijski informisano izvođenje i edukaciju,
+            ukorenjena u lokalnom nasleđu i povezana sa evropskim mrežama.
           </p>
         </div>
 
         <div class="grid two">
           <div class="panel">
-            <h3 data-i18n="aboutMissionTitle">Mission</h3>
-            <p data-i18n="aboutMissionText">
-              To revive and present early music through high-quality performances, masterclasses, and research, while strengthening cultural life in Novi Sad and Vojvodina.
+            <h3>Misija</h3>
+            <p>
+              Oživljavanje i predstavljanje rane muzike kroz kvalitetne koncerte, masterklasove i istraživanje,
+              uz jačanje kulturnog života u Novom Sadu i Vojvodini.
             </p>
           </div>
           <div class="panel">
-            <h3 data-i18n="aboutFocusTitle">What we do</h3>
+            <h3>Šta radimo</h3>
             <ul class="bullets">
-              <li data-i18n="aboutBullet1">Produce concerts and festival programs in historical venues</li>
-              <li data-i18n="aboutBullet2">Run educational activities and instrument access for young musicians</li>
-              <li data-i18n="aboutBullet3">Develop international collaborations and cultural-heritage projects</li>
+              <li>Produkcija koncerata i festivalskih programa u istorijskim prostorima</li>
+              <li>Edukacija, radionice i podrška mladim muzičarima</li>
+              <li>Međunarodna saradnja i projekti kulturnog nasleđa</li>
             </ul>
           </div>
         </div>
 
         <div class="quote">
-          <p data-i18n="aboutQuote">
-            “Early music is not a museum piece — it’s a living language that becomes real when shared with today’s communities.”
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ACTIVITIES -->
-    <section id="activities" class="section alt">
-      <div class="container">
-        <div class="section-head">
-          <h2 data-i18n="actTitle">Activities</h2>
-          <p data-i18n="actIntro">Three main pillars that structure our work.</p>
-        </div>
-
-        <div class="cards">
-          <article class="card">
-            <h3 data-i18n="actCard1Title">Concerts & Festivals</h3>
-            <p data-i18n="actCard1Text">
-              We curate programs from Renaissance to High Baroque, presented with historically informed approaches and international guest artists.
-            </p>
-            <p class="tag" data-i18n="actCard1Tag">Dani Barokne Muzike</p>
-          </article>
-
-          <article class="card">
-            <h3 data-i18n="actCard2Title">Education</h3>
-            <p data-i18n="actCard2Text">
-              Masterclasses, workshops, and ensemble training. We support young musicians with mentorship and access to baroque instruments when possible.
-            </p>
-            <p class="tag" data-i18n="actCard2Tag">Novosadska Barokna Akademija</p>
-          </article>
-
-          <article class="card">
-            <h3 data-i18n="actCard3Title">Research & Heritage</h3>
-            <p data-i18n="actCard3Text">
-              We explore repertoire from manuscript sources, connect music with historical sites, and create projects that leave long-term cultural value.
-            </p>
-            <p class="tag" data-i18n="actCard3Tag">Residencies · EU projects</p>
-          </article>
+          <p>„Rana muzika nije muzejski predmet — ona je živi jezik koji postaje stvaran kada se deli sa zajednicom.”</p>
         </div>
       </div>
     </section>
@@ -163,47 +135,39 @@
     <section id="events" class="section">
       <div class="container">
         <div class="section-head">
-          <h2 data-i18n="eventsTitle">Events</h2>
-          <p data-i18n="eventsIntro">
-            Add upcoming concerts here. For ticketing, link to your platform (e.g., Gigstix).
-          </p>
+          <h2>Najave</h2>
+          <p>Ovde dodajte predstojeće događaje (i link ka prodaji karata).</p>
         </div>
 
         <div class="event-list">
           <div class="event">
             <div class="event-date">
               <div class="event-day">21</div>
-              <div class="event-month" data-i18n="eventsMonthMar">Mar</div>
+              <div class="event-month">Mar</div>
               <div class="event-year">2026</div>
             </div>
             <div class="event-body">
-              <h3 data-i18n="event1Title">Early Music Day — Concert</h3>
-              <p data-i18n="event1Text">
-                Public concert in Novi Sad (details and venue to be confirmed on the project page).
-              </p>
-              <a class="link" href="#" data-i18n="eventLink">Details / Tickets →</a>
+              <h3>Early Music Day — koncert</h3>
+              <p>Javni koncert u Novom Sadu (detalji na stranici projekta).</p>
+              <a class="link" href="/early-music-day/">Detalji →</a>
             </div>
           </div>
 
           <div class="event">
             <div class="event-date">
               <div class="event-day">09</div>
-              <div class="event-month" data-i18n="eventsMonthMay">May</div>
+              <div class="event-month">Maj</div>
               <div class="event-year">2026</div>
             </div>
             <div class="event-body">
-              <h3 data-i18n="event2Title">Bridge Cantata — Opening performance</h3>
-              <p data-i18n="event2Text">
-                Bach BWV 106 + new commissioned work (project details to be announced).
-              </p>
-              <a class="link" href="#" data-i18n="eventLink">Details / Tickets →</a>
+              <h3>Bridge Cantata — otvaranje</h3>
+              <p>Bach BWV 106 + nova kompozicija (detalji uskoro).</p>
+              <a class="link" href="/bridge-cantata/">Detalji →</a>
             </div>
           </div>
         </div>
 
-        <div class="note" data-i18n="eventsNote">
-          Want to add an archive? We can turn this section into a filterable list by year.
-        </div>
+        <div class="note">Kasnije možemo napraviti arhivu po godinama.</div>
       </div>
     </section>
 
@@ -211,22 +175,22 @@
     <section id="media" class="section alt">
       <div class="container">
         <div class="section-head">
-          <h2 data-i18n="mediaTitle">Media</h2>
-          <p data-i18n="mediaIntro">Photos, videos, and press materials.</p>
+          <h2>Media</h2>
+          <p>Fotografije, video i press materijal.</p>
         </div>
 
         <div class="grid three">
           <div class="panel">
-            <h3 data-i18n="mediaPhotosTitle">Photos</h3>
-            <p data-i18n="mediaPhotosText">Add a gallery (we can build a simple lightbox).</p>
+            <h3>Photos</h3>
+            <p>Dodajte galeriju (možemo napraviti lightbox).</p>
           </div>
           <div class="panel">
-            <h3 data-i18n="mediaVideoTitle">Video</h3>
-            <p data-i18n="mediaVideoText">Embed YouTube/Vimeo links here.</p>
+            <h3>Video</h3>
+            <p>Ubacite YouTube/Vimeo linkove.</p>
           </div>
           <div class="panel">
-            <h3 data-i18n="mediaPressTitle">Press kit</h3>
-            <p data-i18n="mediaPressText">Add a downloadable PDF with bio, logos, and photos.</p>
+            <h3>Press kit</h3>
+            <p>PDF sa biografijom, logotipima i fotografijama.</p>
           </div>
         </div>
       </div>
@@ -236,27 +200,23 @@
     <section id="support" class="section">
       <div class="container">
         <div class="section-head">
-          <h2 data-i18n="supportTitle">Support VEMA</h2>
-          <p data-i18n="supportIntro">
-            Your support helps us commission new work, host guest artists, and create educational opportunities in the region.
-          </p>
+          <h2>Podržite VEMA</h2>
+          <p>Podrška omogućava nove programe, gostovanja i edukaciju mladih muzičara.</p>
         </div>
 
         <div class="grid two">
           <div class="panel">
-            <h3 data-i18n="supportWaysTitle">Ways to support</h3>
+            <h3>Načini podrške</h3>
             <ul class="bullets">
-              <li data-i18n="supportWay1">Donations (individual)</li>
-              <li data-i18n="supportWay2">Sponsorship (companies)</li>
-              <li data-i18n="supportWay3">Partnerships & in-kind support (venues, logistics, media)</li>
+              <li>Donacije (pojedinci)</li>
+              <li>Sponzorstva (kompanije)</li>
+              <li>Partnerstva i podrška u naturi (prostor, logistika, mediji)</li>
             </ul>
           </div>
           <div class="panel">
-            <h3 data-i18n="supportContactTitle">Let’s talk</h3>
-            <p data-i18n="supportContactText">
-              Send us a message and we’ll share a sponsorship deck and options that fit your budget.
-            </p>
-            <a class="btn" href="#contact" data-i18n="supportBtn">Contact us</a>
+            <h3>Kontakt</h3>
+            <p>Pišite nam i poslaćemo sponzorski deck i opcije u skladu sa budžetom.</p>
+            <a class="btn" href="#contact">Kontakt</a>
           </div>
         </div>
       </div>
@@ -266,55 +226,54 @@
     <section id="contact" class="section alt">
       <div class="container">
         <div class="section-head">
-          <h2 data-i18n="contactTitle">Contact</h2>
-          <p data-i18n="contactIntro">For collaborations, concerts, education, and partnerships.</p>
+          <h2>Kontakt</h2>
+          <p>Za saradnju, koncerte, edukaciju i partnerstva.</p>
         </div>
 
         <div class="grid two">
           <div class="panel">
-            <h3 data-i18n="contactEmailTitle">Email</h3>
+            <h3>Email</h3>
             <p><a class="link" href="mailto:rana.muzika@gmail.com">rana.muzika@gmail.com</a></p>
 
-            <h3 data-i18n="contactLocationTitle">Location</h3>
-            <p>Novi Sad, Serbia</p>
+            <h3>Lokacija</h3>
+            <p>Novi Sad, Srbija</p>
 
-            <h3 data-i18n="contactSocialTitle">Social</h3>
-            <p class="fineprint" data-i18n="contactSocialText">Add links to Instagram / Facebook / YouTube here.</p>
+            <h3>Social</h3>
+            <p class="fineprint">Dodajte Instagram / Facebook / YouTube linkove.</p>
           </div>
 
           <div class="panel">
-            <h3 data-i18n="contactFormTitle">Message</h3>
+            <h3>Poruka</h3>
             <form class="form" onsubmit="return false;">
               <label>
-                <span data-i18n="contactName">Name</span>
+                <span>Ime</span>
                 <input type="text" required />
               </label>
               <label>
-                <span data-i18n="contactEmail">Email</span>
+                <span>Email</span>
                 <input type="email" required />
               </label>
               <label>
-                <span data-i18n="contactMsg">Message</span>
+                <span>Poruka</span>
                 <textarea rows="5" required></textarea>
               </label>
-              <button class="btn primary" type="submit" data-i18n="contactSend">Send</button>
-              <p class="fineprint" data-i18n="contactFormNote">
-                This form is currently non-functional (safe placeholder). We’ll connect it to a free form service next.
-              </p>
+              <button class="btn primary" type="submit">Pošalji</button>
+              <p class="fineprint">Forma je trenutno placeholder (kasnije je povezujemo na besplatan servis).</p>
             </form>
           </div>
         </div>
       </div>
     </section>
+
   </main>
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p>© <span id="year"></span> VEMA — <span data-i18n="brandSubtitle">Vojvodinian Early Music Association</span></p>
-      <a class="link" href="#top" data-i18n="backToTop">Back to top ↑</a>
+      <p>© <span id="year"></span> VEMA</p>
+      <a class="link" href="#top">Back to top ↑</a>
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="/script.js"></script>
 </body>
 </html>
