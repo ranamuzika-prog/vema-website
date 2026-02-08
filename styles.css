@@ -187,8 +187,8 @@ label{ display:block; margin-bottom: 10px; }
   display:flex;
   justify-content:center;
   align-items:center;
-  gap: 18px;
-  padding: 16px 24px 20px 24px;
+  gap: 36px;
+  padding: 28px 24px;
   border-top: 1px solid var(--line);
 }
 
