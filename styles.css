@@ -1,56 +1,68 @@
 /* =========================================================
    VEMA — Editorial / Minimal Styles
-   White background, no cards, no UI boxes
+   White background, no boxy UI
+   Header: full banner image + centered nav below
    ========================================================= */
 
 /* ------------------------------
-   CSS Reset (light)
+   Reset (light)
 ------------------------------ */
 *,
 *::before,
-*::after {
-  box-sizing: border-box;
-}
+*::after { box-sizing: border-box; }
 
-html, body {
-  margin: 0;
-  padding: 0;
-}
+html, body { margin: 0; padding: 0; }
 
-/* ------------------------------
-   Variables
------------------------------- */
-:root {
+img { max-width: 100%; height: auto; display: block; }
+
+:root{
   --bg: #ffffff;
   --text: #111111;
   --muted: #555555;
   --line: #e9e9e9;
-  --accent: #8b1c1c; /* deep red, adjust if needed */
+  --accent: #8b1c1c;
   --max-width: 1120px;
 }
 
 /* ------------------------------
    Base
 ------------------------------ */
-body {
+body{
   background: var(--bg);
   color: var(--text);
-  font-family: -apple-system, BlinkMacSystemFont,
-               "Inter", "Helvetica Neue", Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue", Arial, sans-serif;
   line-height: 1.6;
   font-size: 18px;
 }
 
-main {
-  display: block;
+main{ display:block; }
+
+/* Accessible helpers */
+.sr-only{
+  position:absolute !important;
+  width:1px; height:1px;
+  padding:0; margin:-1px;
+  overflow:hidden; clip:rect(0,0,0,0);
+  white-space:nowrap; border:0;
 }
+
+.skip-link{
+  position:absolute;
+  top: 10px;
+  left: 10px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  background:#fff;
+  color: var(--text);
+  border-radius: 10px;
+  transform: translateY(-200%);
+}
+.skip-link:focus{ transform: translateY(0); }
 
 /* ------------------------------
    Layout
 ------------------------------ */
-.container,
-.wrap,
-main {
+.container{
   max-width: var(--max-width);
   margin: 0 auto;
   padding-left: 24px;
@@ -60,303 +72,407 @@ main {
 /* ------------------------------
    Typography
 ------------------------------ */
-h1 {
+h1{
   font-size: clamp(34px, 4vw, 52px);
   line-height: 1.05;
   letter-spacing: -0.02em;
   margin: 0 0 16px 0;
 }
-
-h2 {
+h2{
   font-size: 28px;
   letter-spacing: -0.01em;
   margin: 0 0 14px 0;
 }
-
-h3 {
+h3{
   font-size: 22px;
   margin: 0 0 10px 0;
 }
+p{ margin: 0 0 14px 0; color: var(--muted); }
+strong{ color: var(--text); }
 
-p {
-  margin: 0 0 14px 0;
-  color: var(--muted);
-}
-
-strong {
-  color: var(--text);
-}
+a{ color: var(--accent); text-decoration: none; }
+a:hover{ text-decoration: underline; }
 
 /* ------------------------------
-   Links & Buttons
+   Buttons (your HTML uses .btn)
 ------------------------------ */
-a {
-  color: var(--accent);
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-button,
-.button,
-a.button {
-  display: inline-block;
+.btn{
+  display:inline-block;
   padding: 12px 18px;
   border-radius: 10px;
   border: 1px solid var(--line);
-  background: #ffffff;
+  background: #fff;
   color: var(--text);
   font-size: 16px;
   cursor: pointer;
+  text-decoration: none;
 }
-
-.button.primary {
+.btn.primary{
   background: var(--accent);
-  color: #ffffff;
   border-color: var(--accent);
+  color: #fff;
 }
+.btn:hover{ text-decoration: none; }
 
 /* ------------------------------
-   Header / Navigation
+   Inputs (safe, not styling every form container)
 ------------------------------ */
-header {
-  border-bottom: 1px solid var(--line);
-  padding: 18px 0;
-}
-
-nav {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-}
-
-nav a {
-  color: var(--text);
-  font-weight: 500;
-}
-
-/* ------------------------------
-   Hero
------------------------------- */
-.hero {
-  padding: 72px 0 56px 0;
-}
-
-.hero p {
-  max-width: 640px;
-}
-
-/* Hero notes instead of pills */
-.hero-notes {
-  list-style: none;
-  padding: 0;
-  margin: 24px 0 0 0;
-  max-width: 640px;
-}
-
-.hero-notes li {
-  padding: 10px 0;
-  border-top: 1px solid var(--line);
-}
-
-.hero-notes li:first-child {
-  border-top: none;
-}
-
-/* ------------------------------
-   Sections
------------------------------- */
-section {
-  padding: 56px 0;
-  border-top: 1px solid var(--line);
-}
-
-section:first-of-type {
-  border-top: none;
-}
-
-/* ------------------------------
-   Programs / Lists
------------------------------- */
-.program-list {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 24px;
-}
-
-.program-item p {
-  max-width: 640px;
-}
-
-/* ------------------------------
-   Newsletter (minimal)
------------------------------- */
-.newsletter,
-.signup,
-.subscribe,
-form {
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  padding: 18px;
-  max-width: 420px;
-}
-
-input,
-input[type="email"],
-textarea {
+input, textarea{
   width: 100%;
   padding: 12px;
   font-size: 16px;
   border-radius: 10px;
   border: 1px solid var(--line);
-  margin-bottom: 10px;
+}
+label{ display:block; margin-bottom: 10px; }
+.fineprint{ font-size: 13px; color: var(--muted); }
+
+/* =========================================================
+   HEADER: Banner image + nav below
+   (Matches the index.html structure I gave you)
+   ========================================================= */
+
+.site-header{
+  background:#fff;
+  border-bottom: 1px solid var(--line);
 }
 
-/* ------------------------------
+/* Banner row */
+.header-banner{
+  position: relative;
+  padding: 18px 24px 10px 24px;
+}
+
+/* Center the banner content to max width */
+.header-banner .brand-link{
+  display:block;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  text-decoration: none;
+}
+
+/* Banner logo image: full width within max width, height capped */
+.header-banner .brand-link img{
+  width: 100%;
+  height: auto;
+  max-height: 240px; /* adjust if you want taller/shorter banner */
+  object-fit: contain;
+}
+
+/* Language flags: top-right on banner */
+.header-banner .lang-switch{
+  position:absolute;
+  top: 14px;
+  right: 24px;
+  display:flex;
+  gap: 10px;
+  align-items:center;
+}
+
+.header-banner .lang-switch button,
+.header-banner .lang-switch a{
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  cursor: pointer;
+  font-size: 20px; /* makes emoji flags readable */
+  line-height: 1;
+}
+
+.header-banner .lang-label{ display:none; } /* hides EN/SR text if still present */
+
+/* Nav row below banner */
+.nav{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap: 18px;
+  padding: 12px 24px 16px 24px;
+  border-top: 1px solid var(--line);
+}
+
+/* Nav menu wrapper */
+.nav-menu{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap: 18px;
+}
+
+/* Nav links */
+.nav a{
+  color: var(--text);
+  font-weight: 500;
+  text-decoration:none;
+}
+.nav a:hover{ text-decoration: underline; }
+
+/* Mobile menu toggle (only shows on small screens) */
+.nav-toggle{
+  display:none;
+  background:#fff;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px 12px;
+  cursor:pointer;
+}
+
+/* “More” dropdown */
+.menu-more{
+  position: relative;
+}
+.menu-more > summary{
+  list-style:none;
+  cursor:pointer;
+  color: var(--text);
+  font-weight: 500;
+}
+.menu-more > summary::-webkit-details-marker{ display:none; }
+
+.menu-more-panel{
+  margin-top: 10px;
+  display:grid;
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background:#fff;
+}
+
+/* =========================================================
+   Sections
+   ========================================================= */
+
+section{
+  padding: 56px 0;
+  border-top: 1px solid var(--line);
+}
+section:first-of-type{ border-top:none; }
+
+.section-head p{ max-width: 760px; }
+
+/* Optional subtle alt background (if you keep .alt in HTML) */
+.section.alt{
+  background: #fff;
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero{
+  padding: 56px 0 56px 0;
+}
+
+.hero-inner{
+  display:grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 28px;
+  align-items: start;
+}
+
+.lead{
+  font-size: 18px;
+  max-width: 680px;
+}
+
+.hero-cta{
+  display:flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 18px 0 18px 0;
+}
+
+/* Replace pills with clean list (your HTML still uses .quick-facts) */
+.quick-facts{
+  list-style:none;
+  padding:0;
+  margin: 18px 0 0 0;
+  max-width: 680px;
+}
+.quick-facts li{
+  padding: 10px 0;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+}
+.quick-facts li:first-child{ border-top:none; }
+.quick-facts strong{ color: var(--text); }
+
+/* Newsletter card in hero (minimal, not boxy) */
+.hero-card .card{
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 18px;
+  background:#fff;
+}
+.hero-card h2{ margin-top: 0; }
+
+/* =========================================================
+   Grids / Cards
+   ========================================================= */
+
+.grid{
+  display:grid;
+  gap: 24px;
+}
+.grid.two{ grid-template-columns: 1fr 1fr; }
+.grid.three{ grid-template-columns: 1fr 1fr 1fr; }
+
+.cards{
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 24px;
+}
+
+/* Panel: minimal text block (no heavy card look) */
+.panel{
+  padding: 0;
+  border: none;
+  background: transparent;
+}
+
+/* Article cards in Activities: keep them readable but not “app card” */
+.cards .card{
+  border-top: 1px solid var(--line);
+  padding-top: 18px;
+}
+
+/* Tags: just muted text */
+.tag{
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* Bullets */
+.bullets{
+  margin: 0;
+  padding-left: 18px;
+  color: var(--muted);
+}
+.bullets li{ margin: 8px 0; }
+
+/* Quote */
+.quote{
+  margin-top: 28px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+.quote p{
+  font-style: italic;
+  color: var(--text);
+}
+
+/* =========================================================
+   Events
+   ========================================================= */
+
+.event-list{
+  display:grid;
+  gap: 18px;
+}
+
+.event{
+  display:grid;
+  grid-template-columns: 120px 1fr;
+  gap: 18px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+.event:first-child{ border-top:none; padding-top:0; }
+
+.event-date{
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 12px;
+  text-align:center;
+}
+.event-day{ font-size: 28px; font-weight: 700; color: var(--text); }
+.event-month, .event-year{ color: var(--muted); font-size: 14px; }
+
+.link{ color: var(--accent); text-decoration: none; }
+.link:hover{ text-decoration: underline; }
+
+.note{
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* =========================================================
    Footer
------------------------------- */
-footer {
+   ========================================================= */
+
+.site-footer{
   border-top: 1px solid var(--line);
   padding: 32px 0;
   font-size: 14px;
   color: var(--muted);
 }
 
-/* ------------------------------
-   REMOVE ALL BOXY UI ELEMENTS
------------------------------- */
-.card,
-.panel,
-.box,
-.pill,
-.badge,
-.tile,
-.tag {
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  border-radius: 0 !important;
-  padding: 0 !important;
+.footer-inner{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
 }
 
-/* ------------------------------
-   Utilities
------------------------------- */
-.center {
-  text-align: center;
-}
-
-.muted {
-  color: var(--muted);
-}
-
-.spacer {
-  height: 32px;
-}
-
-/* ------------------------------
+/* =========================================================
    Responsive
------------------------------- */
-@media (max-width: 768px) {
-  .hero {
-    padding: 56px 0 40px 0;
+   ========================================================= */
+
+@media (max-width: 980px){
+  .hero-inner{
+    grid-template-columns: 1fr;
+  }
+  .cards{
+    grid-template-columns: 1fr;
+  }
+  .grid.two{
+    grid-template-columns: 1fr;
+  }
+  .grid.three{
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px){
+  /* Banner padding */
+  .header-banner{ padding: 14px 16px 8px 16px; }
+  .header-banner .lang-switch{ right: 16px; top: 12px; }
+
+  /* Nav becomes mobile-friendly */
+  .nav{
+    justify-content: space-between;
+    padding: 10px 16px 14px 16px;
+    gap: 10px;
   }
 
-  nav {
-    flex-wrap: wrap;
-    gap: 16px;
+  .nav-toggle{ display:inline-block; }
+
+  /* Hide menu until opened (your JS toggles .open on #navMenu usually) */
+  .nav-menu{
+    display:none;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding-top: 10px;
+    gap: 12px;
   }
-}
-/* Header positioning base */
-header { position: relative; }
 
-/* Language switch: top-right, flags only */
-.lang-switch {
-  position: absolute;
-  top: 14px;
-  right: 24px;
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  margin: 0 !important;
-}
+  .nav-menu.open{ display:flex; }
 
-/* Remove “box/button” look completely */
-.lang-switch a,
-.lang-switch button {
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  padding: 0 !important;
-  border-radius: 0 !important;
-  min-width: auto !important;
-  height: auto !important;
-}
+  .menu-more-panel{
+    width: min(320px, 90vw);
+  }
 
-/* If the flag is an image */
-.lang-switch img {
-  width: 26px;
-  height: 18px;
-  display: block;
-}
-
-/* If you have a selected/active state, make it subtle */
-.lang-switch .active,
-.lang-switch a[aria-current="page"] {
-  outline: 2px solid var(--line);
-  outline-offset: 4px;
-  border-radius: 6px;
-}
-/* Center the menu links */
-nav {
-  width: 100%;
-  justify-content: center !important;
-}
-
-/* If you have a specific menu container, center it */
-.nav-menu,
-.nav-links,
-.menu {
-  display: flex;
-  justify-content: center !important;
-  align-items: center;
-  gap: 18px;
-  width: 100%;
-}
-
-/* If your menu items are inline links */
-nav a {
-  text-align: center;
-}
-/* --- Logo image in top-left --- */
-header {
-  position: relative;
-}
-
-/* Keep brand area from taking weird space */
-.brand {
-  position: absolute;
-  top: 14px;
-  left: 24px;
-  margin: 0;
-}
-
-/* Make the link not look like a button */
-.brand-link {
-  display: block;
-  text-decoration: none;
-}
-
-/* Scale logo */
-.brand-link img {
-  height: 46px;
-  width: auto;
-  display: block;
-}
-
-/* Hide old text elements if any still exist somewhere */
-.logo, .brand-text {
-  display: none !important;
+  .event{
+    grid-template-columns: 1fr;
+  }
+  .event-date{
+    width: 160px;
+  }
 }
