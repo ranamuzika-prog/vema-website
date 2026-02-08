@@ -3,51 +3,52 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>VEMA – Vojvođansko udruženje za ranu muziku</title>
-  <meta name="description" content="VEMA — Vojvodinian Early Music Association. Concerts, education, research and cultural heritage projects in Novi Sad and Vojvodina." />
+  <title>VEMA – Vojvođansko udruženje za ranu muziku</title>
+  <meta name="description" content="VEMA — Vojvođansko udruženje za ranu muziku. Koncerti, edukacija, istraživanje i projekti kulturnog nasleđa u Novom Sadu i Vojvodini." />
   <link rel="stylesheet" href="styles.css" />
 </head>
 
-<div class="brand">
-  <a href="index.html" class="brand-link site-logo" aria-label="VEMA home">
-    <img src="assets/images/vema-logo.png" alt="VEMA – Vojvođansko udruženje za ranu muziku">
-  </a>
-</div>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-      <nav class="nav" aria-label="Primary">
-        <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu">
-          ☰ <span class="sr-only">Menu</span>
+  <!-- HEADER: banner image full width + nav below -->
+  <header class="site-header" id="top">
+    <div class="header-banner">
+      <a href="index.html" class="brand-link" aria-label="VEMA home">
+        <img src="assets/images/vema-logo.png" alt="VEMA – Vojvođansko udruženje za ranu muziku">
+      </a>
+
+      <!-- Language flags: top-right, no boxes -->
+      <div class="lang-switch" role="group" aria-label="Language switcher">
+        <button class="lang-btn" data-lang="sr" type="button" aria-label="Srpski">
+          <span class="flag" aria-hidden="true">🇷🇸</span>
         </button>
-        <div class="nav-menu" id="navMenu">
-<a href="./programs/">Programs</a>
-
-<a href="./bridge-cantata/">Bridge Cantata</a>
-
-<details class="menu-more">
-  <summary>Menu</summary>
-  <div class="menu-more-panel">
-    <a href="./partners/">Partners</a>
-    <a href="#media">Media</a>
-    <a href="#support">Support</a>
-    <a href="#contact">Contact</a>
-  </div>
-</details>
-
-<div class="lang-switch" role="group" aria-label="Language switcher">
-  <button class="lang-btn" data-lang="en" type="button">
-    <span class="flag" aria-hidden="true">🇬🇧</span>
-    <span class="lang-label">EN</span>
-  </button>
-
-  <button class="lang-btn" data-lang="sr" type="button">
-    <span class="flag" aria-hidden="true">🇷🇸</span>
-    <span class="lang-label">SR</span>
-  </button>
-</div>
-
-        </div>
-      </nav>
+        <button class="lang-btn" data-lang="en" type="button" aria-label="English">
+          <span class="flag" aria-hidden="true">🇬🇧</span>
+        </button>
+      </div>
     </div>
+
+    <nav class="nav" aria-label="Primary">
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu">
+        ☰ <span class="sr-only">Menu</span>
+      </button>
+
+      <div class="nav-menu" id="navMenu">
+        <a href="./programs/">Programs</a>
+        <a href="./bridge-cantata/">Bridge Cantata</a>
+
+        <details class="menu-more">
+          <summary>Menu</summary>
+          <div class="menu-more-panel">
+            <a href="./partners/">Partners</a>
+            <a href="#media">Media</a>
+            <a href="#support">Support</a>
+            <a href="#contact">Contact</a>
+          </div>
+        </details>
+      </div>
+    </nav>
   </header>
 
   <main id="main">
@@ -75,7 +76,6 @@
           <div class="card">
             <h2 data-i18n="heroCardTitle">Get updates</h2>
             <p data-i18n="heroCardText">Subscribe for concert announcements and project news.</p>
-            <!-- Replace action with your newsletter tool later (Mailchimp, Buttondown, etc.) -->
             <form class="form" onsubmit="return false;">
               <label class="sr-only" for="email">Email</label>
               <input id="email" type="email" placeholder="email@example.com" required />
@@ -283,7 +283,6 @@
 
           <div class="panel">
             <h3 data-i18n="contactFormTitle">Message</h3>
-            <!-- This is a placeholder. For real sending, use Formspree/Netlify Forms/etc. -->
             <form class="form" onsubmit="return false;">
               <label>
                 <span data-i18n="contactName">Name</span>
@@ -306,7 +305,6 @@
         </div>
       </div>
     </section>
-
   </main>
 
   <footer class="site-footer">
