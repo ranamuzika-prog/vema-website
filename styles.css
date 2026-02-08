@@ -269,3 +269,43 @@ footer {
     gap: 16px;
   }
 }
+/* Header positioning base */
+header { position: relative; }
+
+/* Language switch: top-right, flags only */
+.lang-switch {
+  position: absolute;
+  top: 14px;
+  right: 24px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin: 0 !important;
+}
+
+/* Remove “box/button” look completely */
+.lang-switch a,
+.lang-switch button {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  min-width: auto !important;
+  height: auto !important;
+}
+
+/* If the flag is an image */
+.lang-switch img {
+  width: 26px;
+  height: 18px;
+  display: block;
+}
+
+/* If you have a selected/active state, make it subtle */
+.lang-switch .active,
+.lang-switch a[aria-current="page"] {
+  outline: 2px solid var(--line);
+  outline-offset: 4px;
+  border-radius: 6px;
+}
