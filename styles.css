@@ -139,7 +139,7 @@ label{ display:block; margin-bottom: 10px; }
 /* Banner row */
 .header-banner{
   position: relative;
-  padding: 14px 24px 10px 24px; /* tightened */
+  padding: 28px 24px 18px 24px; /* tightened */
 }
 
 /* Center the banner content to max width */
@@ -154,7 +154,7 @@ label{ display:block; margin-bottom: 10px; }
 .header-banner .brand-link img{
   width: 100%;
   height: auto;
-  max-height: 140px; /* tightened for SVG */
+  max-height: 200px; /* tightened for SVG */
   object-fit: contain;
 }
 
@@ -188,7 +188,7 @@ label{ display:block; margin-bottom: 10px; }
   justify-content:center;
   align-items:center;
   gap: 18px;
-  padding: 12px 24px 16px 24px;
+  padding: 16px 24px 20px 24px;
   border-top: 1px solid var(--line);
 }
 
