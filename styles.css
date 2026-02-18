@@ -72,10 +72,23 @@ main{ display:block; }
 /* ------------------------------
    Typography
 ------------------------------ */
-h1 {
+/* Hero headline only */
+.hero h1{
   font-family: "Cormorant Garamond", serif;
   font-weight: 500;
+  font-size: clamp(42px, 4.5vw, 62px);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  margin: 0 0 18px 0;
 }
+
+/* If you used the two-line version */
+.hero h1 .hero-subline{
+  display:block;
+  font-weight: 400;
+  opacity: .82;
+}
+
 h2{
   font-size: 28px;
   letter-spacing: -0.01em;
