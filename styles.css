@@ -265,4 +265,49 @@ a:hover{ text-decoration: underline; }
     border-top: 1px solid var(--line);
     padding-top: 18px;
   }
+   /* =========================
+   FIX: Header too big
+   ========================= */
+
+/* If your big top image is inside the header, constrain it */
+header img,
+.header img,
+.site-header img,
+.brand img,
+.logo img{
+  max-height: 120px;      /* adjust: 90–140px */
+  width: auto;
+  height: auto;
+}
+
+/* If your logo is an <svg> */
+header svg,
+.logo svg{
+  max-height: 120px;
+}
+
+/* Reduce header padding */
+header{
+  padding: 0;
+}
+
+/* If you have a wrapper around the logo/banner */
+.header,
+.site-header,
+.header-inner,
+.brand{
+  padding: 14px 0;        /* makes it compact */
+}
+
+/* Nav row: keep it tight */
+.nav{
+  padding: 10px 0 !important;
+  gap: 18px;
+}
+
+/* If there is extra vertical space above hero caused by header */
+.hero{
+  padding-top: 44px;      /* not 76px */
+}
+
 }
