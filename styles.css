@@ -309,5 +309,21 @@ header{
 .hero{
   padding-top: 44px;      /* not 76px */
 }
+/* =========================
+   FIX oversized header banner
+   ========================= */
+
+.header-banner{
+  padding: 20px 0;        /* reduce vertical space */
+  text-align: center;
+}
+
+.brand-link img{
+  max-height: 140px;      /* try 120px if still too big */
+  width: auto;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
 
 }
