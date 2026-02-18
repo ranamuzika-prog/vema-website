@@ -193,7 +193,7 @@ a:hover{ text-decoration: underline; }
 /* RIGHT SIDE (this is what you asked: lower + calmer) */
 .hero-aside{
   /* push the whole right block lower */
-  margin-top: 86px;               /* <-- change this value to taste */
+  margin-top: 160px;               /* <-- change this value to taste */
   padding-top: 0;
 
   /* make it feel lighter / less “boxy” */
