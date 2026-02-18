@@ -1,469 +1,270 @@
-/* =========================================================
-   VEMA — Editorial / Minimal Styles
-   White background, no boxy UI
-   Header: full banner image + centered nav below
-   ========================================================= */
+/* =========================
+   VEMA — Clean Classic CSS
+   (replace your whole CSS with this)
+   ========================= */
 
-/* ------------------------------
-   Reset (light)
------------------------------- */
-*,
-*::before,
-*::after { box-sizing: border-box; }
-
-html, body { margin: 0; padding: 0; }
-
-img { max-width: 100%; height: auto; display: block; }
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap');
 
 :root{
-  --bg: #ffffff;
-  --text: #111111;
-  --muted: #555555;
-  --line: #e9e9e9;
-  --accent: #8b1c1c;
-  --max-width: 1120px;
+  --bg:#ffffff;
+  --text:#111111;
+  --muted:#5b5b5b;
+  --line:#e9e9e9;
+  --accent:#8e1515;
+
+  --container: 1120px;
+  --radius: 14px;
 }
 
-/* ------------------------------
-   Base
------------------------------- */
+*{ box-sizing:border-box; }
+html, body{ margin:0; padding:0; }
 body{
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   background: var(--bg);
   color: var(--text);
-  font-family: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue", Arial, sans-serif;
-  line-height: 1.6;
-  font-size: 18px;
+  line-height: 1.55;
 }
 
-main{ display:block; }
+img{ max-width:100%; height:auto; display:block; }
 
-/* Accessible helpers */
-.sr-only{
-  position:absolute !important;
-  width:1px; height:1px;
-  padding:0; margin:-1px;
-  overflow:hidden; clip:rect(0,0,0,0);
-  white-space:nowrap; border:0;
-}
-
-.skip-link{
-  position:absolute;
-  top: 10px;
-  left: 10px;
-  padding: 10px 12px;
-  border: 1px solid var(--line);
-  background:#fff;
-  color: var(--text);
-  border-radius: 10px;
-  transform: translateY(-200%);
-}
-.skip-link:focus{ transform: translateY(0); }
-
-/* ------------------------------
-   Layout
------------------------------- */
 .container{
-  max-width: var(--max-width);
+  max-width: var(--container);
   margin: 0 auto;
-  padding-left: 24px;
-  padding-right: 24px;
+  padding: 0 22px;
 }
 
-/* ------------------------------
+/* =========================
+   Header / Nav
+   ========================= */
+
+header{
+  background:#fff;
+  border-bottom: 1px solid var(--line);
+}
+
+.nav{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap: 22px;
+  padding: 16px 0;
+}
+
+.nav a{
+  color: var(--text);
+  text-decoration:none;
+  font-weight:600;
+  font-size: 14px;
+  letter-spacing: .02em;
+  opacity:.9;
+}
+
+.nav a:hover{ opacity:1; text-decoration: underline; }
+
+/* =========================
    Typography
------------------------------- */
-/* Hero headline only */
-.hero h1{
-  font-family: "Cormorant Garamond", serif;
-  font-weight: 500;
-  font-size: clamp(42px, 4.5vw, 62px);
-  line-height: 1.12;
-  letter-spacing: -0.02em;
-  margin: 0 0 18px 0;
-}
+   ========================= */
 
-/* If you used the two-line version */
-.hero h1 .hero-subline{
-  display:block;
-  font-weight: 400;
-  opacity: .82;
-}
+h1,h2,h3{ margin: 0 0 12px 0; }
 
 h2{
   font-size: 28px;
   letter-spacing: -0.01em;
   margin: 0 0 14px 0;
 }
+
 h3{
-  font-size: 22px;
+  font-size: 20px;
   margin: 0 0 10px 0;
 }
-p{ margin: 0 0 14px 0; color: var(--muted); }
+
+p{
+  margin: 0 0 14px 0;
+  color: var(--muted);
+}
+
 strong{ color: var(--text); }
 
-a{ color: var(--accent); text-decoration: none; }
-a:hover{ text-decoration: underline; }
-
-/* ------------------------------
-   Buttons (your HTML uses .btn)
------------------------------- */
-.btn{
-  display:inline-block;
-  padding: 12px 18px;
-  border-radius: 10px;
-  border: 1px solid var(--line);
-  background: #fff;
-  color: var(--text);
-  font-size: 16px;
-  cursor: pointer;
+a{
+  color: var(--accent);
   text-decoration: none;
 }
+a:hover{ text-decoration: underline; }
+
+/* =========================
+   Buttons
+   ========================= */
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding: 10px 16px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background:#fff;
+  color: var(--text);
+  text-decoration:none;
+  font-weight:600;
+}
+
 .btn.primary{
   background: var(--accent);
   border-color: var(--accent);
-  color: #fff;
-}
-.btn:hover{ text-decoration: none; }
-
-/* ------------------------------
-   Inputs (safe, not styling every form container)
------------------------------- */
-input, textarea{
-  width: 100%;
-  padding: 12px;
-  font-size: 16px;
-  border-radius: 10px;
-  border: 1px solid var(--line);
-}
-label{ display:block; margin-bottom: 10px; }
-.fineprint{ font-size: 13px; color: var(--muted); }
-
-/* =========================================================
-   HEADER: Banner image + nav below
-   ========================================================= */
-
-.site-header{
-  background:#fff;
-  border-bottom: 1px solid var(--line);
+  color:#fff;
 }
 
-/* Banner row */
-.header-banner{
-  position: relative;
-  padding: 28px 24px 18px 24px; /* tightened */
-}
+.btn:hover{ transform: translateY(-1px); }
 
-/* Center the banner content to max width */
-.header-banner .brand-link{
-  display:block;
-  max-width: var(--max-width);
-  margin: 0 auto;
-  text-decoration: none;
-}
-
-/* Banner logo image: full width within max width, height capped (SVG-ready) */
-.header-banner .brand-link img{
-  width: 100%;
-  height: auto;
-  max-height: 200px; /* tightened for SVG */
-  object-fit: contain;
-}
-
-/* Language flags: top-right on banner */
-.header-banner .lang-switch{
-  position:absolute;
-  top: 14px;
-  right: 24px;
-  display:flex;
-  gap: 10px;
-  align-items:center;
-}
-
-.header-banner .lang-switch button,
-.header-banner .lang-switch a{
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  padding: 0 !important;
-  border-radius: 0 !important;
-  cursor: pointer;
-  font-size: 20px;
-  line-height: 1;
-}
-
-.header-banner .lang-label{ display:none; }
-
-/* Nav row below banner */
-.nav{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap: 64px;
-  padding: 28px 24px;
-  border-top: 1px solid var(--line);
-}
-
-/* Nav menu wrapper */
-.nav-menu{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap: 80px;
-}
-
-/* Nav links */
-.nav a{
-  color: var(--text);
-  font-weight: 500;
-  font-size: 17px;
-  letter-spacing: 0.04em;
-}
-
-.nav a:hover{ text-decoration: underline; }
-
-/* Mobile menu toggle (only shows on small screens) */
-.nav-toggle{
-  display:none;
-  background:#fff;
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  padding: 10px 12px;
-  cursor:pointer;
-}
-
-/* “More” dropdown */
-.menu-more{
-  position: relative;
-}
-.menu-more > summary{
-  list-style:none;
-  cursor:pointer;
-  color: var(--text);
-  font-weight: 500;
-}
-.menu-more > summary::-webkit-details-marker{ display:none; }
-
-.menu-more-panel{
-  margin-top: 10px;
-  display:grid;
-  gap: 10px;
-  padding: 12px;
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  background:#fff;
-}
-
-/* =========================================================
-   Sections
-   ========================================================= */
-
-section{
-  padding: 56px 0;
-  border-top: 1px solid var(--line);
-}
-section:first-of-type{ border-top:none; }
-
-.section-head p{ max-width: 760px; }
-
-.section.alt{
-  background: #fff;
-}
-
-/* =========================================================
-   HERO
-   ========================================================= */
+/* =========================
+   HERO Layout (key changes)
+   ========================= */
 
 .hero{
-  padding: 80px 0 64px 0;
+  /* more classic whitespace */
+  padding: 76px 0 54px 0;
 }
 
 .hero-inner{
   display:grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 28px;
-  align-items: start;
+  grid-template-columns: 1.15fr .85fr;
+  gap: 56px;
+  align-items:start;
 }
 
-.lead{
-  font-size: 18px;
-  max-width: 680px;
+/* LEFT SIDE */
+.hero-copy h1{
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 500;
+  font-size: clamp(44px, 4.6vw, 66px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 0 0 18px 0;
+  color: var(--text);
 }
 
+/* Optional second line styling if you used <span class="hero-subline"> */
+.hero-copy h1 .hero-subline{
+  display:block;
+  font-weight: 400;
+  opacity: .82;
+}
+
+.hero-copy .lead{
+  font-size: 16px;
+  color: var(--muted);
+  max-width: 62ch;
+  margin-bottom: 18px;
+}
+
+/* CTA row */
 .hero-cta{
   display:flex;
-  gap: 12px;
-  flex-wrap: wrap;
+  gap: 10px;
   margin: 18px 0 18px 0;
 }
 
-/* Replace pills with clean list */
+/* Quick facts list */
 .quick-facts{
   list-style:none;
   padding:0;
   margin: 18px 0 0 0;
-  max-width: 680px;
+  border-top: 1px solid var(--line);
 }
+
 .quick-facts li{
-  padding: 10px 0;
-  border-top: 1px solid var(--line);
-  color: var(--muted);
-}
-.quick-facts li:first-child{ border-top:none; }
-.quick-facts strong{ color: var(--text); }
-
-/* Newsletter card in hero */
-.hero-card .card{
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  padding: 18px;
-  background:#fff;
-}
-.hero-card h2{ margin-top: 0; }
-
-/* =========================================================
-   Grids / Cards
-   ========================================================= */
-
-.grid{
-  display:grid;
-  gap: 24px;
-}
-.grid.two{ grid-template-columns: 1fr 1fr; }
-.grid.three{ grid-template-columns: 1fr 1fr 1fr; }
-
-.cards{
-  display:grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 24px;
-}
-
-.panel{
-  padding: 0;
-  border: none;
-  background: transparent;
-}
-
-.cards .card{
-  border-top: 1px solid var(--line);
-  padding-top: 18px;
-}
-
-.tag{
-  margin-top: 10px;
-  color: var(--muted);
-  font-size: 14px;
-}
-
-.bullets{
-  margin: 0;
-  padding-left: 18px;
-  color: var(--muted);
-}
-.bullets li{ margin: 8px 0; }
-
-.quote{
-  margin-top: 28px;
-  padding-top: 18px;
-  border-top: 1px solid var(--line);
-}
-.quote p{
-  font-style: italic;
-  color: var(--text);
-}
-
-/* =========================================================
-   Events
-   ========================================================= */
-
-.event-list{
-  display:grid;
-  gap: 18px;
-}
-
-.event{
-  display:grid;
-  grid-template-columns: 120px 1fr;
-  gap: 18px;
-  padding-top: 18px;
-  border-top: 1px solid var(--line);
-}
-.event:first-child{ border-top:none; padding-top:0; }
-
-.event-date{
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  padding: 12px;
-  text-align:center;
-}
-.event-day{ font-size: 28px; font-weight: 700; color: var(--text); }
-.event-month, .event-year{ color: var(--muted); font-size: 14px; }
-
-.link{ color: var(--accent); text-decoration: none; }
-.link:hover{ text-decoration: underline; }
-
-.note{
-  margin-top: 18px;
-  color: var(--muted);
-  font-size: 14px;
-}
-
-/* =========================================================
-   Footer
-   ========================================================= */
-
-.site-footer{
-  border-top: 1px solid var(--line);
-  padding: 32px 0;
-  font-size: 14px;
-  color: var(--muted);
-}
-
-.footer-inner{
   display:flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 16px;
-  flex-wrap: wrap;
+  gap: 10px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
 }
 
-/* =========================================================
+.quick-facts li span{
+  min-width: 110px;
+  color: var(--muted);
+}
+
+.quick-facts li strong{
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* RIGHT SIDE (this is what you asked: lower + calmer) */
+.hero-aside{
+  /* push the whole right block lower */
+  margin-top: 86px;               /* <-- change this value to taste */
+  padding-top: 0;
+
+  /* make it feel lighter / less “boxy” */
+  border-left: 1px solid var(--line);
+  padding-left: 26px;
+}
+
+/* Tone down right-side headings so they don’t compete with H1 */
+.hero-aside h2,
+.hero-aside h3{
+  font-size: 16px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+
+/* Reduce density */
+.hero-aside p{
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 14px;
+  max-width: 42ch;
+}
+
+.hero-aside ul{
+  margin: 0;
+  padding-left: 16px;
+  color: var(--muted);
+}
+
+.hero-aside li{ margin: 8px 0; }
+
+/* If you have multiple columns inside the right block */
+.hero-aside .cols,
+.hero-aside .grid,
+.hero-aside .two-col{
+  display:grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+/* =========================
+   Make it even more “empty”
+   ========================= */
+
+/* If the right side still feels too heavy, uncomment ONE of these:
+
+.hero-aside ul{ display:none; }
+.hero-aside .what-we-do{ display:none; }
+.hero-aside .mission{ display:none; }
+
+*/
+
+/* =========================
    Responsive
-   ========================================================= */
+   ========================= */
 
 @media (max-width: 980px){
-  .hero-inner{ grid-template-columns: 1fr; }
-  .cards{ grid-template-columns: 1fr; }
-  .grid.two{ grid-template-columns: 1fr; }
-  .grid.three{ grid-template-columns: 1fr; }
-}
+  .hero{ padding: 54px 0 36px 0; }
 
-@media (max-width: 768px){
-  .header-banner{ padding: 14px 16px 8px 16px; }
-  .header-banner .lang-switch{ right: 16px; top: 12px; }
-
-  .nav{
-    justify-content: space-between;
-    padding: 10px 16px 14px 16px;
-    gap: 10px;
+  .hero-inner{
+    grid-template-columns: 1fr;
+    gap: 28px;
   }
 
-  .nav-toggle{ display:inline-block; }
-
-  .nav-menu{
-    display:none;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    padding-top: 10px;
-    gap: 12px;
+  .hero-aside{
+    margin-top: 0;
+    border-left: none;
+    padding-left: 0;
+    border-top: 1px solid var(--line);
+    padding-top: 18px;
   }
-
-  .nav-menu.open{ display:flex; }
-
-  .menu-more-panel{
-    width: min(320px, 90vw);
-  }
-
-  .event{ grid-template-columns: 1fr; }
-  .event-date{ width: 160px; }
 }
