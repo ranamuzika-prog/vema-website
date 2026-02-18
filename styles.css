@@ -63,13 +63,13 @@ a{
 
 /* Banner with logo centered */
 .header-banner{
-  padding:40px 0 20px 0;
+  padding:30px 0 20px 0;
   text-align:center;
   position:relative;
 }
 
 .brand-link img{
-  max-height:105px;
+  max-height:110px;
   margin:0 auto;
 }
 
