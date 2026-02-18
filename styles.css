@@ -1,24 +1,30 @@
 /* =========================
-   VEMA — Clean Classic CSS
-   (replace your whole CSS with this)
+   VEMA — Minimal Classic CSS
+   Replace your whole styles.css with this
    ========================= */
 
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap');
 
 :root{
-  --bg:#ffffff;
-  --text:#111111;
-  --muted:#5b5b5b;
-  --line:#e9e9e9;
-  --accent:#8e1515;
+  --bg: #f7f4ee;          /* warm cream */
+  --card: #ffffff;
+  --text: #1a1a1a;
+  --muted: #6b6b6b;
+
+  --accent: #8b1e1e;      /* institutional red */
+  --accent-soft: rgba(139, 30, 30, 0.08);
+
+  --line: rgba(0,0,0,.12);
+  --shadow: 0 10px 25px rgba(0,0,0,.06);
+  --radius: 16px;
 
   --container: 1120px;
-  --radius: 14px;
 }
 
 *{ box-sizing:border-box; }
-html, body{ margin:0; padding:0; }
+html{ scroll-behavior:smooth; }
 body{
+  margin:0;
   font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   background: var(--bg);
   color: var(--text);
@@ -30,300 +36,370 @@ img{ max-width:100%; height:auto; display:block; }
 .container{
   max-width: var(--container);
   margin: 0 auto;
-  padding: 0 22px;
+  padding: 0 26px; /* more breathing room so logo isn't glued to edge */
+}
+
+a{ color: inherit; }
+.link{
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(139,30,30,.45);
+}
+.link:hover{ border-bottom-color: rgba(139,30,30,.8); }
+
+.sr-only{
+  position:absolute;
+  width:1px; height:1px;
+  padding:0; margin:-1px;
+  overflow:hidden;
+  clip:rect(0,0,0,0);
+  white-space:nowrap;
+  border:0;
 }
 
 /* =========================
-   Header / Nav
+   Header / Brand / Nav
    ========================= */
 
-header{
-  background:#fff;
+.site-header{
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(247, 244, 238, .92);
+  backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--line);
 }
 
-.nav{
+.header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 18px;
+  padding: 12px 0;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap: 12px;
+  min-width: 0;
+  text-decoration:none;
+  color:inherit;
+}
+
+/* Logo square */
+.logo{
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
   display:flex;
   align-items:center;
   justify-content:center;
-  gap: 22px;
-  padding: 16px 0;
+  border: 1px solid var(--line);
+  background: var(--card);
+  box-shadow: var(--shadow);
+  flex: 0 0 auto;
 }
 
-.nav a{
-  color: var(--text);
-  text-decoration:none;
-  font-weight:600;
-  font-size: 14px;
-  letter-spacing: .02em;
-  opacity:.9;
+.logo-text{
+  font-weight: 800;
+  font-size: .95rem;
+  letter-spacing: .04em;
+  line-height: 1;
 }
 
-.nav a:hover{ opacity:1; text-decoration: underline; }
-
-/* =========================
-   Typography
-   ========================= */
-
-h1,h2,h3{ margin: 0 0 12px 0; }
-
-h2{
-  font-size: 28px;
-  letter-spacing: -0.01em;
-  margin: 0 0 14px 0;
-}
-
-h3{
-  font-size: 20px;
-  margin: 0 0 10px 0;
-}
-
-p{
-  margin: 0 0 14px 0;
+/* 3-line name beside logo */
+.brand-text{
+  display:flex;
+  flex-direction:column;
+  line-height: 1.1;
+  font-size: .92rem;
   color: var(--muted);
+  white-space: nowrap;
 }
 
-strong{ color: var(--text); }
+.brand-strong{
+  font-weight: 750;
+  color: var(--text);
+}
 
-a{
+/* Nav container */
+.nav{ position: relative; flex: 0 0 auto; }
+
+.nav-toggle{
+  display:none;
+  border:1px solid var(--line);
+  background:var(--card);
+  border-radius:12px;
+  padding:10px 12px;
+  cursor:pointer;
+}
+
+/* Top-level menu (short!) */
+.nav-menu{
+  display:flex;
+  align-items:center;
+  gap: 14px;
+  white-space: nowrap; /* keeps everything in one line on desktop */
+}
+
+/* Links: red + refined underline hover (no blocky background) */
+.nav-menu a{
+  text-decoration:none;
+  padding: 8px 10px;
+  border-radius: 12px;
   color: var(--accent);
-  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: .02em;
+  position: relative;
 }
-a:hover{ text-decoration: underline; }
+
+.nav-menu a::after{
+  content:"";
+  position:absolute;
+  left:10px;
+  right:10px;
+  bottom:5px;
+  height:1px;
+  background: var(--accent);
+  opacity:0;
+  transform: scaleX(0.6);
+  transition: opacity .2s ease, transform .2s ease;
+}
+.nav-menu a:hover::after{
+  opacity:.55;
+  transform: scaleX(1);
+}
+
+/* Dropdown "Menu" using <details> */
+.menu-more{ position: relative; }
+
+.menu-more summary{
+  list-style:none;
+  cursor:pointer;
+  user-select:none;
+  padding: 8px 10px;
+  border-radius:12px;
+  color: var(--accent);
+  font-weight:500;
+  letter-spacing:.02em;
+  position:relative;
+}
+.menu-more summary::-webkit-details-marker{ display:none; }
+
+.menu-more summary::after{
+  content:"";
+  position:absolute;
+  left:10px;
+  right:10px;
+  bottom:5px;
+  height:1px;
+  background: var(--accent);
+  opacity:0;
+  transform: scaleX(0.6);
+  transition: opacity .2s ease, transform .2s ease;
+}
+.menu-more summary:hover::after{
+  opacity:.55;
+  transform: scaleX(1);
+}
+
+.menu-more-panel{
+  display:none;
+  position:absolute;
+  right:0;
+  top: 46px;
+  min-width: 190px;
+  background: var(--card);
+  border:1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding:8px;
+  gap:6px;
+  z-index: 30;
+}
+.menu-more[open] .menu-more-panel{ display:grid; }
+
+.menu-more-panel a{
+  padding: 10px 10px;
+  border-radius: 12px;
+  letter-spacing: 0;
+}
+.menu-more-panel a:hover{
+  background: var(--accent-soft);
+}
+
+/* Language squares (elegant + always fits) */
+.lang-switch{
+  display:flex;
+  gap: 10px;
+  margin-left: 6px;
+}
+
+.lang-btn{
+  width:46px;
+  height:46px;
+  border:1px solid var(--line);
+  background: var(--card);
+  border-radius: 14px;
+  cursor:pointer;
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap: 4px;
+
+  padding: 6px 0;
+}
+
+.lang-btn .flag{
+  font-size: 16px;
+  line-height: 1;
+}
+
+.lang-btn .lang-label{
+  font-size: .68rem;
+  font-weight: 700;
+  color: var(--muted);
+  letter-spacing: .08em;
+}
+
+.lang-btn.active{
+  border-color: rgba(139, 30, 30, .45);
+  box-shadow: 0 0 0 3px rgba(139, 30, 30, .10);
+}
 
 /* =========================
-   Buttons
+   Typography / Sections
    ========================= */
+
+h1, h2, h3{ margin: 0 0 12px; }
+h1{
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 500;
+  font-size: clamp(2.2rem, 3.6vw, 3.4rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+h2{
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 500;
+  font-size: 1.9rem;
+  letter-spacing: -0.01em;
+}
+h3{
+  font-weight: 650;
+  font-size: 1.1rem;
+}
+
+p{ margin: 0 0 14px; color: var(--muted); }
+
+.section{ padding: 56px 0; }
+.section.alt{
+  background: rgba(0,0,0,.02);
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+
+/* =========================
+   Hero (works with your existing HTML)
+   ========================= */
+
+.hero{ padding: 70px 0 40px; }
+
+.hero-inner{
+  display:grid;
+  grid-template-columns: 1.25fr .75fr;
+  gap: 26px;
+  align-items:start;
+}
+
+.lead{
+  font-size: 1rem;
+  color: var(--muted);
+  max-width: 62ch;
+}
+
+.hero-cta{ display:flex; gap:10px; flex-wrap:wrap; margin-top:16px; }
 
 .btn{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  padding: 10px 16px;
-  border-radius: 12px;
+  padding: 11px 14px;
+  border-radius: 14px;
   border: 1px solid var(--line);
-  background:#fff;
+  background: var(--card);
   color: var(--text);
   text-decoration:none;
-  font-weight:600;
+  font-weight: 600;
 }
-
 .btn.primary{
   background: var(--accent);
   border-color: var(--accent);
-  color:#fff;
+  color: #fff;
 }
 
-.btn:hover{ transform: translateY(-1px); }
+.card{
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 18px;
+}
 
 /* =========================
-   HERO Layout (key changes)
+   Footer
    ========================= */
 
-.hero{
-  /* more classic whitespace */
-  padding: 76px 0 54px 0;
+.site-footer{
+  border-top:1px solid var(--line);
+  padding: 22px 0;
 }
 
-.hero-inner{
-    display:block;
-    max-width: 900px;
-}
-
-/* LEFT SIDE */
-.hero-copy h1{
-  font-family: "Cormorant Garamond", serif;
-  font-weight: 500;
-  font-size: clamp(44px, 4.6vw, 66px);
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-  margin: 0 0 18px 0;
-  color: var(--text);
-}
-
-/* Optional second line styling if you used <span class="hero-subline"> */
-.hero-copy h1 .hero-subline{
-  display:block;
-  font-weight: 400;
-  opacity: .82;
-}
-
-.hero-copy .lead{
-  font-size: 16px;
-  color: var(--muted);
-  max-width: 62ch;
-  margin-bottom: 18px;
-}
-
-/* CTA row */
-.hero-cta{
+.footer-inner{
   display:flex;
-  gap: 10px;
-  margin: 18px 0 18px 0;
-}
-
-/* Quick facts list */
-.quick-facts{
-  list-style:none;
-  padding:0;
-  margin: 18px 0 0 0;
-  border-top: 1px solid var(--line);
-}
-
-.quick-facts li{
-  display:flex;
-  gap: 10px;
-  padding: 12px 0;
-  border-bottom: 1px solid var(--line);
-  color: var(--muted);
-}
-
-.quick-facts li span{
-  min-width: 110px;
-  color: var(--muted);
-}
-
-.quick-facts li strong{
-  color: var(--text);
-  font-weight: 600;
-}
-
-/* RIGHT SIDE (this is what you asked: lower + calmer) */
-.hero-aside{
-  /* push the whole right block lower */
-  margin-top: 160px;               /* <-- change this value to taste */
-  padding-top: 0;
-
-  /* make it feel lighter / less “boxy” */
-  border-left: 1px solid var(--line);
-  padding-left: 26px;
-}
-
-/* Tone down right-side headings so they don’t compete with H1 */
-.hero-aside h2,
-.hero-aside h3{
-  font-size: 16px;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  color: var(--text);
-  margin-bottom: 10px;
-}
-
-/* Reduce density */
-.hero-aside p{
-  font-size: 14px;
-  color: var(--muted);
-  margin-bottom: 14px;
-  max-width: 42ch;
-}
-
-.hero-aside ul{
-  margin: 0;
-  padding-left: 16px;
-  color: var(--muted);
-}
-
-.hero-aside li{ margin: 8px 0; }
-
-/* If you have multiple columns inside the right block */
-.hero-aside .cols,
-.hero-aside .grid,
-.hero-aside .two-col{
-  display:grid;
-  grid-template-columns: 1fr;
-  gap: 14px;
+  justify-content:space-between;
+  align-items:center;
+  gap:16px;
 }
 
 /* =========================
-   Make it even more “empty”
+   Mobile
    ========================= */
 
-/* If the right side still feels too heavy, uncomment ONE of these:
+@media (max-width: 900px){
+  .brand-text{ display:none; } /* keep header clean on small screens */
 
-.hero-aside ul{ display:none; }
-.hero-aside .what-we-do{ display:none; }
-.hero-aside .mission{ display:none; }
+  .hero-inner{ grid-template-columns: 1fr; }
 
-*/
+  .nav-toggle{ display:inline-flex; }
 
-/* =========================
-   Responsive
-   ========================= */
-
-@media (max-width: 980px){
-  .hero{ padding: 54px 0 36px 0; }
-
-  .hero-inner{
-    grid-template-columns: 1fr;
-    gap: 28px;
+  .nav-menu{
+    display:none;
+    position:absolute;
+    right: 26px;
+    top: 64px;
+    flex-direction:column;
+    align-items:stretch;
+    padding:12px;
+    background: var(--card);
+    border:1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    min-width: 240px;
+    gap: 10px;
+    white-space: normal;
   }
+  .nav-menu.open{ display:flex; }
 
-  .hero-aside{
-    margin-top: 0;
-    border-left: none;
-    padding-left: 0;
-    border-top: 1px solid var(--line);
-    padding-top: 18px;
+  .menu-more-panel{
+    position: static;
+    display:grid;
+    border:none;
+    box-shadow:none;
+    padding:0;
+    min-width:auto;
   }
-   /* =========================
-   FIX: Header too big
-   ========================= */
-
-/* If your big top image is inside the header, constrain it */
-header img,
-.header img,
-.site-header img,
-.brand img,
-.logo img{
-  max-height: 120px;      /* adjust: 90–140px */
-  width: auto;
-  height: auto;
-}
-
-/* If your logo is an <svg> */
-header svg,
-.logo svg{
-  max-height: 120px;
-}
-
-/* Reduce header padding */
-header{
-  padding: 0;
-}
-
-/* If you have a wrapper around the logo/banner */
-.header,
-.site-header,
-.header-inner,
-.brand{
-  padding: 14px 0;        /* makes it compact */
-}
-
-/* Nav row: keep it tight */
-.nav{
-  padding: 10px 0 !important;
-  gap: 18px;
-}
-
-/* If there is extra vertical space above hero caused by header */
-.hero{
-  padding-top: 44px;      /* not 76px */
-}
-/* =========================
-   FIX oversized header banner
-   ========================= */
-
-.header-banner{
-  padding: 20px 0;        /* reduce vertical space */
-  text-align: center;
-}
-
-.brand-link img{
-  max-height: 140px;      /* try 120px if still too big */
-  width: auto;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-}
-
 }
