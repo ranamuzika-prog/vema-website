@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Early Music Day | VEMA</title>
   <meta name="description" content="Early Music Day in Novi Sad — residency, education, recording, and public concert." />
-  <link rel="stylesheet" href="/styles.css" />
+<link rel="stylesheet" href="../styles.css" />
 </head>
 
 <body>
@@ -19,13 +19,9 @@
              alt="VEMA – Vojvodinian Early Music Association / Vojvođansko udruženje za ranu muziku">
       </a>
 
-      <div class="lang-switch" role="group" aria-label="Language switcher">
-        <button class="lang-btn" data-lang="sr" type="button" aria-label="Srpski">
-          <span class="flag" aria-hidden="true">🇷🇸</span>
-        </button>
-        <button class="lang-btn" data-lang="en" type="button" aria-label="English">
-          <span class="flag" aria-hidden="true">🇬🇧</span>
-        </button>
+      <div class="lang">
+      <a href="#" class="lang-btn" data-lang-switch="sr" aria-pressed="true" title="Srpski">🇷🇸</a>
+      <a href="#" class="lang-btn" data-lang-switch="en" aria-pressed="false" title="English">🇬🇧</a>        
       </div>
     </div>
     
@@ -48,15 +44,17 @@
   </header>
 
   <main id="main">
-    <section class="section">
-      <div class="container">
-        <div class="section-head">
-          <h1>Early Music Day — Novi Sad</h1>
-          <p class="lead">
-            Rezidencija koja kombinuje istraživanje, probe, edukaciju, snimanje i javni koncert.
-          </p>
-        </div>
+<section class="section">
+  <div class="container">
 
+        <div class="section-head">
+          <h1 data-lang="sr">Dan rane muzike — Novi Sad</h1>
+        <h1 data-lang="en">Early Music Day — Novi Sad</h1>
+
+        <p data-lang="sr">Rezidencija koja kombinuje istraživanje, probe, edukaciju, snimanje i javni koncert.</p>
+        <p data-lang="en">A residency combining research, rehearsals, education, recording and a public concert.</p>
+          </div>
+          
         <div class="grid two">
           <div class="panel">
             <h2>2026 fokus</h2>
@@ -76,7 +74,6 @@
             </ul>
           </div>
         </div>
-
         <p class="note"><a class="link" href="/index.html#events">Back to events →</a></p>
       </div>
     </section>

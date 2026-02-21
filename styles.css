@@ -77,8 +77,8 @@ a{
    FLAGS (TOP RIGHT, NO BUTTON)
    ========================= */
 
-.lang-switch{
-  position:absolute;
+.lang{
+    position:absolute;
   top:20px;
   right:30px;
   display:flex;
@@ -233,8 +233,8 @@ p{
 
 .hero-inner{
   display:grid;
-  grid-template-columns:1fr
-  gap:26px;
+  grid-template-columns: 1fr;
+  gap: 26px;
 }
 .hero-inner > *{
   max-width: 900px;
@@ -395,12 +395,6 @@ p{
   width: 60px;
   height: 1px;
   background: #000;
-}
-/* ===== Align all main content to same left edge ===== */
-:root{
-  --container: 1120px;
-  --pad: 26px;
-}
 
 .container{
   max-width: var(--container);
@@ -431,3 +425,17 @@ main p, main ul, main ol{
   border-top: 1px solid rgba(0,0,0,.12);
   margin: 36px 0;
 }
+
+/* =========================
+   Consistent content column (match index)
+   ========================= */
+
+.section-head,
+.grid.two,
+.note{
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* keep normal container padding (do NOT zero it out) */
