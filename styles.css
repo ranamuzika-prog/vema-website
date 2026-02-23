@@ -2,23 +2,75 @@
    VEMA — Clean White Layout (FULL REPLACE)
    ========================= */
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600;700&display=swap');
 :root{
   --bg:#ffffff;
   --card:#ffffff;
-  --text:#1a1a1a;
-  --muted:#6b6b6b;
+  --text:#111111;
+  --muted:#666666;
 
-  --accent:#8b1e1e;
-  --line:rgba(0,0,0,.12);
+  --accent:#8b1e1e;     /* VEMA red */
+  --blue:#082666;       /* deep blue */
+  --line:rgba(0,0,0,.10);
 
   --container:1120px;
   --pad:28px;
-
-  --content:900px; /* consistent inner column */
+}
+body{
+  font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background:var(--bg);
+  color:var(--text);
 }
 
+h1,h2{
+  font-family:"Fraunces", serif;
+  letter-spacing:.01em;
+}
+
+.band{
+  padding:80px 0;
+}
+
+.band--1{ background:var(--band-1); }
+.band--2{ background:var(--band-2); }
+.band--3{ background:var(--band-3); }
+.band--4{ background:var(--band-4); }
+
+.center{ text-align:center; }
+.center .lead, .center p{ margin-left:auto; margin-right:auto; }
+.lead{ max-width:70ch; }
+
+a.title-link{
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+  text-decoration:underline;
+  text-underline-offset:6px;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:12px 16px;
+  border-radius:12px;
+  border:1px solid rgba(139,30,30,.35);
+  background:#fff;
+  color:var(--red);
+  font-weight:700;
+}
+
+.btn:hover{
+  border-color:rgba(139,30,30,.75);
+  transform:translateY(-1px);
+}
+
+.btn--solid{
+  background:var(--red);
+  color:#fff;
+  border-color:var(--red);
+}
 /* =========================
    Base
    ========================= */
@@ -116,7 +168,7 @@ a{
   display:flex;
   justify-content:center;
   gap:60px;
-  padding:20px 0;
+  padding:40px 0;
 }
 
 .nav-menu a{
@@ -140,39 +192,6 @@ a{
 }
 
 .nav-menu a:hover::after{ opacity:.6; }
-
-/* Dropdown (if used) */
-.menu-more{ position:relative; }
-
-.menu-more summary{
-  list-style:none;
-  cursor:pointer;
-  color:var(--accent);
-  font-weight:500;
-}
-
-.menu-more summary::-webkit-details-marker{ display:none; }
-
-.menu-more-panel{
-  position:absolute;
-  top:35px;
-  left:50%;
-  transform:translateX(-50%);
-  background:#fff;
-  border:1px solid var(--line);
-  padding:12px;
-  display:none;
-  flex-direction:column;
-  gap:8px;
-  min-width:180px;
-}
-
-.menu-more[open] .menu-more-panel{ display:flex; }
-
-.menu-more-panel a{
-  padding:6px 0;
-  text-align:center;
-}
 
 /* =========================
    TYPOGRAPHY
@@ -198,6 +217,85 @@ h3{ font-weight:600; }
 p{
   margin:0 0 14px;
   color:var(--muted);
+}
+
+/* Centered headings (used on Early Music Day intro) */
+.section-head.center,
+.section-title.center,
+.section-sub.center{
+  text-align: center;
+}
+
+.section-sub{
+  max-width: 70ch;
+  margin: 0 auto 26px;
+  color: var(--muted);
+}
+
+.center-text{
+  text-align:center;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+/* =========================
+   Early Music Day – centered intro
+   ========================= */
+.section-head{
+  text-align: center;
+}
+
+.section-head p{
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 70ch;   /* keeps the paragraph elegant */
+
+.emd-main{
+  display:block;
+  color: var(--accent);
+  font-weight: 700;
+  font-size: clamp(2.6rem, 4.5vw, 4rem);
+  letter-spacing: .05em;
+  margin-bottom: .3em;
+}
+
+.emd-city{
+  display:block;
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(1.4rem, 2.2vw, 2rem);
+  color: var(--text);
+  letter-spacing: .03em;
+}
+}
+
+/* =========================
+   Unified typography + link titles
+   ========================= */
+
+/* Keep everything on the site using the same base font */
+body{
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+/* Headings keep the elegant serif */
+h1, h2, h3{
+  font-family: "Cormorant Garamond", serif;
+}
+
+/* Title-style links (like headings you can click) */
+a.title-link{
+  font-family: "Cormorant Garamond", serif;
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  text-decoration-thickness: 2px;
+  letter-spacing: .04em;
+}
+
+/* Optional: hover feels “clickable” */
+a.title-link:hover{
+  color: var(--accent);
 }
 
 /* =========================
@@ -444,16 +542,24 @@ p{
 
 .event-top{
   display:flex;
-  justify-content:space-between;
+  justify-content:center;
   align-items:center;
-  gap:14px;
+  width:100%;
   margin-bottom:10px;
 }
 
 .event-date{
-  color:var(--muted);
-  font-size:0.95rem;
-  white-space:nowrap;
+  font-size:2rem;       /* triple size */
+  font-weight:500;
+  color:#940606;
+  letter-spacing:.06em;
+  text-align:center;
+}
+
+/* Center header block inside event cards */
+.event-card .event-top,
+.event-card .event-heading{
+  text-align:center;
 }
 
 .badge{
@@ -495,6 +601,18 @@ p{
 .small-note{
   color:var(--muted);
   font-size:0.9rem;
+}
+
+.event-photo{
+  margin: 12px 0 10px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+}
+.event-photo img{
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 /* =========================
@@ -569,3 +687,62 @@ p{
   .lang{ right:20px; }
   .najave-box{ padding:40px 24px 34px; }
 }
+
+/* =========================
+   SECTION BLOCKS + FULL-WIDTH DIVIDERS
+   ========================= */
+
+/* Default section look: clean white */
+.section{
+  padding:80px 0;
+  background: var(--bg);
+}
+
+/* Optional block tints (use as .section section--tint-red / blue / light) */
+.section--tint-light{ background:#fafafa; }
+.section--tint-red{ background: rgba(139,30,30,.04); }
+.section--tint-blue{ background: rgba(31,74,168,.04); }
+
+/* Full-width thin divider line */
+.full-divider{
+  height:1px;
+  background: var(--line);
+  width:100%;
+  margin:0;
+}
+
+/* If you already use hr, make it full width */
+hr{
+  border:0;
+  border-top:1px solid var(--line);
+  width:100%;
+  margin:36px 0;
+}
+
+/* Make divider ignore container width when placed inside container */
+.container .full-divider{
+  position:relative;
+  left:50%;
+  transform:translateX(-50%);
+  width:100vw;
+}
+
+/* Panels/cards cleaner (less clunky) */
+.event-card,
+.panel{
+  border:1px solid var(--line);
+  border-radius:16px;
+  background: var(--card);
+  box-shadow:none;
+}
+
+/* Buttons: crisp, not “pill heavy” */
+.btn{
+  border:1px solid rgba(139,30,30,.35);
+  background:#fff;
+  color:var(--accent);
+}
+.btn:hover{
+  border-color:rgba(139,30,30,.75);
+}
+
