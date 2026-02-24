@@ -11,43 +11,52 @@
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- HEADER (SAME ON ALL PAGES) -->
-<header class="site-header" id="top">
-  <a class="skip-link" href="#main">Skip to content</a>
+<!-- HAMBURGER MENU (top-right) -->
+<details class="hamburger" role="navigation">
+  <summary aria-label="Otvori meni" title="Meni">
+    <span class="hamburger-icon" aria-hidden="true"></span>
+  </summary>
 
-  <div class="header-banner">
-    <a href="/" class="brand-link" aria-label="VEMA home">
-      <img src="/assets/images/vema-logo.svg" alt="VEMA — Vojvodina Early Music Association / Vojvođansko udruženje za ranu muziku">
-    </a>
+  <div class="hamburger-panel">
+    <a href="/index.html">Početna</a>
+    <a href="/early-music-day/index.html">Dan rane muzike</a>
 
-<div class="lang">
-  <a href="#" class="lang-btn" data-lang-switch="sr" aria-pressed="true" title="Srpski">🇷🇸</a>
-    <a href="#" class="lang-btn" data-lang-switch="en" aria-pressed="false" title="English">🇬🇧</a>
+    <div class="hamburger-divider"></div>
+
+    <div class="hamburger-lang">
+      <a href="/index.html" aria-label="Srpski">🇷🇸 SR</a>
+      <a href="/en/index.html" aria-label="English">🇬🇧 EN</a>
     </div>
-
-      <div class="nav-menu" id="navMenu">
-      <a href="/early-music-day/">Dan rane muzike</a>
-      <a href="/contact/">Kontakt</a>        
-      </div>
-      </details>
-    </div>
-  </nav>
-</header>
-
+  </div>
+</details>
 
   <main id="main">
 
     <!-- HERO -->
-    <section class="hero">
-      <div class="container hero-inner">
-        <div class="hero-copy">
-         <h1> Rana muzika u Vojvodini<br>
-        <span class="hero-subline">izvođena, podučavana i deljena.</span>
-        </h1>
-          <p class="lead">
-            VEMA povezuje umetnike, publiku i kulturno nasleđe kroz koncerte, edukaciju i projekte zasnovane na istraživanju u Novom Sadu i šire.
-          </p>
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="hero-copy">
 
+      <h1 class="hero-title">
+        Rana muzika u Vojvodini
+        <span class="hero-subline">izvođena, podučavana i deljena.</span>
+      </h1>
+
+      <p class="lead">
+        VEMA povezuje umetnike, publiku i kulturno nasleđe kroz koncerte,
+        edukaciju i projekte zasnovane na istraživanju u Novom Sadu i šire.
+             <div class="hero-cta">
+  <a class="cta-primary" href="/early-music-day/">
+    21. mart 2026 — Dan rane muzike 
+  </a>
+</div>
+      </p>
+
+ 
+
+    </div>
+  </div>
+</section>
     <!-- ABOUT -->
     <section id="about" class="section">
       <div class="container">
@@ -75,10 +84,6 @@
               <li>Međunarodna saradnja i projekti kulturnog nasleđa</li>
             </ul>
           </div>
-        </div>
-
-        <div class="quote">
-          <p>„Rana muzika je živi jezik koji postaje stvaran kada se deli sa zajednicom.”</p>
         </div>
 
     <!-- EVENTS -->

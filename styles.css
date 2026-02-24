@@ -194,6 +194,47 @@ a{
 .nav-menu a:hover::after{ opacity:.6; }
 
 /* =========================
+   MENU BAND (full-width)
+   ========================= */
+
+.nav{
+  border-top:1px solid var(--line);
+  border-bottom:1px solid rgba(0,0,0,.12); /* full-width black-ish line */
+  background:#fff;
+}
+
+.nav-menu{
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 14px 28px;          /* makes the band feel intentional */
+  display:flex;
+  justify-content:center;
+  gap:60px;
+}
+
+/* Make the red text look “held” by the band */
+.nav-menu a{
+  font-size:16px;
+  font-weight:600;
+  letter-spacing:.03em;
+  color:var(--accent);
+  padding:10px 14px;
+  border-radius:999px;
+  transition: background .2s ease, transform .2s ease;
+}
+
+/* subtle hover highlight (still clean) */
+.nav-menu a:hover{
+  background:rgba(3, 3, 3, 0.08);
+  transform:translateY(-1px);
+}
+
+/* remove the old underline effect if you still have it */
+.nav-menu a::after{
+  display:none !important;
+}
+
+/* =========================
    TYPOGRAPHY
    ========================= */
 
@@ -746,3 +787,215 @@ hr{
   border-color:rgba(139,30,30,.75);
 }
 
+/* =========================
+   HAMBURGER MENU (top-right)
+   ========================= */
+
+.hamburger{
+  position:absolute;
+  top:18px;
+  right:22px;
+  z-index:50;
+}
+
+.hamburger summary{
+  list-style:none;
+  cursor:pointer;
+  width:44px;
+  height:44px;
+  border:1px solid var(--line);
+  border-radius:10px;
+  background:#fff;
+  display:grid;
+  place-items:center;
+}
+
+.hamburger summary::-webkit-details-marker{ display:none; }
+
+.hamburger-icon{
+  width:20px;
+  height:2px;
+  background:#111;
+  position:relative;
+  display:block;
+}
+
+.hamburger-icon::before,
+.hamburger-icon::after{
+  content:"";
+  position:absolute;
+  left:0;
+  width:20px;
+  height:2px;
+  background:#111;
+}
+
+.hamburger-icon::before{ top:-6px; }
+.hamburger-icon::after{ top:6px; }
+
+.hamburger-panel{
+  margin-top:10px;
+  width:220px;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:14px;
+  box-shadow:0 12px 30px rgba(0,0,0,.08);
+}
+
+.hamburger-panel a{
+  display:block;
+  padding:10px 8px;
+  font-size:14px;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  color:#111;
+}
+
+.hamburger-panel a:hover{
+  color:var(--accent);
+}
+
+.hamburger-divider{
+  height:1px;
+  background:var(--line);
+  margin:10px 0;
+}
+
+.hamburger-lang{
+  display:flex;
+  gap:10px;
+  padding-top:2px;
+}
+
+.hamburger-lang a{
+  padding:8px 8px;
+  border:1px solid var(--line);
+  border-radius:10px;
+  font-size:13px;
+  text-transform:uppercase;
+}
+/* =========================
+   HOMEPAGE HERO — centered + modern font
+   ========================= */
+
+/* Moderniji font (zamena za “klasičan” osećaj naslova) */
+:root{
+  --ui: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+.hero, .section-head{
+  text-align:center;
+}
+
+.hero h1,
+.section-head h1{
+  font-family: var(--ui);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.hero .lead,
+.section-head .lead{
+  margin-left:auto;
+  margin-right:auto;
+  max-width: 70ch;
+}
+
+/* =========================
+   MODERN HERO (REMA STYLE)
+   ========================= */
+
+.hero{
+  padding: 90px 0 55px;
+  text-align:center;
+  background:#fff;
+}
+
+.hero + .section{
+  padding-top: 40px;
+}
+
+.hero-title{
+  font-family: Inter, system-ui, -apple-system, Segoe UI, sans-serif;
+  font-size: clamp(40px, 5vw, 64px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color:#111;
+  margin-bottom: 24px;
+}
+
+.hero-subline{
+  display:block;
+  font-weight:500;
+  font-size: 0.85em;
+  margin-top: 8px;
+}
+
+.hero .lead{
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 18px;
+  line-height:1.7;
+  color:#555;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.hero-cta{
+  margin-top: 18px;
+  display:flex;
+  justify-content:center;
+}
+
+.cta-primary{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:12px 18px;
+  border-radius:999px;
+  border:1px solid rgba(0,0,0,.18);
+  background:#fff;
+  color:#111;
+  font-weight:700;
+  letter-spacing:.02em;
+  text-decoration:none;
+  box-shadow: 0 6px 18px rgba(0,0,0,.06);
+  transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease;
+}
+
+.cta-primary:hover{
+  transform: translateY(-1px);
+  border-color: rgba(139,30,30,.45);
+  box-shadow: 0 10px 26px rgba(0,0,0,.08);
+}
+
+.cta-primary:focus{
+  outline: 2px solid #8b1e1e;
+  outline-offset: 3px;
+}
+
+/* =========================
+   REMOVE ALL ROUNDED EDGES
+   ========================= */
+
+*{
+  border-radius: 0 !important;
+}
+
+button,
+.btn,
+input,
+textarea,
+select{
+  border-radius: 0 !important;
+}
+
+.card,
+.event-card,
+.next-card,
+.hamburger summary,
+.hamburger-panel{
+  border-radius: 0 !important;
+}
