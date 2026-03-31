@@ -1,0 +1,412 @@
+:root {
+  --dor-blue: #003399;
+  --dor-yellow: #FFCC00;
+}
+
+/* HERO */
+.bridge-hero {
+  position: relative;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 24px;
+  color: white;
+  text-align: center;
+  overflow: hidden;
+  background: url("../assets/images/bridge-bg.jpg") top / cover no-repeat;
+}
+
+.bridge-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(5, 10, 15, 0.82) 0%,
+    rgba(5, 10, 15, 0.62) 42%,
+    rgba(5, 10, 15, 0.30) 72%,
+    rgba(5, 10, 15, 0.16) 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+.bridge-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 0.18) 0%,
+    rgba(0, 0, 0, 0.34) 50%,
+    rgba(0, 0, 0, 0.55) 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+.bridge-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.bridge-logo {
+  display: block;
+  width: 180px;
+  margin: 0 auto 28px;
+}
+
+.bridge-title {
+  max-width: 1100px;   /* give it more space */
+  margin: 0 auto 18px;
+  text-align: center;
+
+  font-size: clamp(2.8rem, 5vw, 4.8rem); /* slightly reduced */
+  line-height: 1.05;
+
+  white-space: nowrap; /* force one line */
+  color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .bridge-title {
+    white-space: normal; /* allow wrap on mobile */
+  }
+}
+
+.bridge-title-sub {
+  display: block;
+  margin-top: 18px;
+  font-size: 0.42em;
+  line-height: 1.15;
+  letter-spacing: 0.06em;
+  text-align: center;
+  white-space: normal;
+}
+.bridge-subtitle {
+  max-width: 700px;
+  margin: 0 auto 28px;
+  font-family: Arial, sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.85);
+  text-align: center;
+}
+
+.bridge-meta {
+  font-size: 0.95rem;
+  line-height: 1.4;
+  margin: 0 auto 28px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.bridge-actions {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.bridge-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 22px;
+  text-decoration: none;
+  font-family: 'SrbijaSans', Arial, sans-serif;
+  font-weight: 400;
+  transition: all 0.25s ease;
+}
+
+.bridge-btn-primary {
+  background: var(--dor-blue);
+  color: #ffffff;
+  border: 1px solid var(--dor-blue);
+}
+
+.bridge-btn-primary:hover {
+  background: #00297d;
+  border-color: #00297d;
+  transform: translateY(-2px);
+}
+
+.bridge-btn-secondary {
+  background: #ffffff;
+  color: var(--dor-blue);
+  border: 1px solid var(--dor-blue);
+}
+
+.bridge-btn-secondary:hover {
+  background: var(--dor-blue);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.bridge-eu-note {
+  font-family: Arial, sans-serif;
+  font-size: 0.92rem;
+  opacity: 0.78;
+  margin-top: 28px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* GENERIC LABEL */
+.section-label {
+  display: inline-block;
+  margin-bottom: 18px;
+  font-size: 0.82rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-family: 'SrbijaSans', Arial, sans-serif;
+}
+
+/* INTRO SECTION */
+.bridge-intro {
+  position: relative;
+  padding: 120px 24px;
+  background: #06080d;
+  color: #ffffff;
+}
+
+.bridge-intro-content {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.bridge-intro .section-label {
+  padding-left: 12px;
+  border-left: 3px solid var(--dor-blue);
+  color: #cfd4df;
+}
+
+.bridge-intro h2 {
+  margin: 0 0 28px;
+  font-weight: 400;
+  font-size: clamp(2.4rem, 3.5vw, 3.2rem);
+  line-height: 1.15;
+  color: #ffffff;
+}
+
+.bridge-intro p {
+  margin: 0 0 22px;
+  font-family: Arial, sans-serif;
+  font-size: 1.08rem;
+  line-height: 1.85;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.bridge-intro p:last-child {
+  margin-bottom: 0;
+}
+
+/* LIGHT SECTION */
+.section-light {
+  background: #f5f5f3;
+  color: #111;
+  padding: 120px 24px;
+}
+
+.bridge-why-content {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.section-light .section-label {
+  color: var(--dor-blue);
+}
+
+.section-light h2 {
+  margin: 20px 0 40px;
+  font-size: clamp(2.4rem, 3.5vw, 3.4rem);
+  line-height: 1.2;
+  color: #111111;
+}
+
+.section-light p {
+  margin-bottom: 22px;
+  font-family: Arial, sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.9;
+  color: rgba(0, 0, 0, 0.75);
+}
+
+/* MASTERCLASS */
+.bridge-masterclass {
+  background: #0a0d14;
+  color: #ffffff;
+  padding: 120px 24px;
+}
+
+.masterclass-content {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.bridge-masterclass .section-label {
+  padding-left: 12px;
+  border-left: 3px solid var(--dor-blue);
+  color: var(--dor-blue);
+}
+
+.bridge-masterclass h2 {
+  margin: 20px 0 50px;
+  font-size: clamp(2.2rem, 3vw, 3rem);
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.masterclass-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 60px;
+}
+
+.masterclass-info {
+  font-family: Arial, sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.masterclass-info p {
+  margin-bottom: 12px;
+}
+
+.masterclass-info strong {
+  color: #ffffff;
+}
+
+.masterclass-text {
+  font-family: Arial, sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.masterclass-text p {
+  margin-bottom: 18px;
+}
+
+.masterclass-text em {
+  color: #d4af6a;
+  font-style: normal;
+}
+
+/* FOOTER */
+.bridge-footer {
+  margin-top: 0;
+  padding: 40px 24px;
+  background: rgba(0, 0, 0, 0.6);
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.bridge-footer-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.bridge-footer p {
+  font-family: Arial, sans-serif;
+  font-size: 0.75rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .bridge-title {
+    font-size: clamp(2.4rem, 9vw, 4rem);
+  }
+
+  .bridge-title-sub {
+    text-align: center;
+    text-align-last: center;
+    font-size: 0.6em;
+  }
+
+  .masterclass-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .bridge-hero,
+  .bridge-intro,
+  .section-light,
+  .bridge-masterclass {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+.bridge-intro-content,
+.bridge-why-content {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.bridge-intro p,
+.bridge-why p {
+  max-width: 760px;
+}
+
+.bridge-section-head {
+  max-width: 1100px;
+  margin: 0 auto 42px;
+}
+
+.bridge-section-head .section-label {
+  display: inline-block;
+  margin-bottom: 22px;
+  padding-left: 14px;
+  border-left: 4px solid #003399;
+  color: #cfd4df;
+  font-family: 'SrbijaSans', Arial, sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.bridge-section-head h2 {
+  margin: 0;
+  font-family: 'SrbijaSans', Arial, sans-serif;
+  font-weight: 400;
+  font-size: clamp(2.8rem, 4vw, 4.4rem);
+  line-height: 1.05;
+  text-align: left;
+}
+
+.bridge-why .bridge-section-head h2 {
+  font-size: clamp(2rem, 3vw, 3.1rem);
+  line-height: 1.12;
+  max-width: 980px;
+}
+
+.bridge-why-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.bridge-why-content p {
+  max-width: 760px;
+}
+
+.bridge-masterclass .bridge-section-head h2 {
+  font-size: clamp(2.2rem, 3vw, 3.2rem);
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .bridge-masterclass .bridge-section-head h2 {
+    white-space: normal;
+  }
+}
