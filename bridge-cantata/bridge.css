@@ -21,11 +21,19 @@ html {
   background: url("../assets/images/bridge-bg.jpg") top / cover no-repeat;
 }
 
+.subpage-bridge .bridge-hero {
+  padding-top: 228px;
+}
+
 .bridge-topbar {
   position: absolute;
   top: 28px;
   right: 32px;
   z-index: 3;
+}
+
+.subpage-bridge .bridge-topbar {
+  top: 120px;
 }
 
 .bridge-topbar-left {
@@ -85,8 +93,17 @@ html {
 
 .bridge-logo {
   width: 180px;
-  margin: -48px auto 28px;
+  margin: -126px auto 28px;
   transform: translateX(-14px);
+}
+
+.bridge-hero-heading {
+  max-width: 980px;
+  margin: 0 auto 26px;
+}
+
+.bridge-title-shared {
+  margin-bottom: 0;
 }
 
 .bridge-title {
@@ -521,7 +538,7 @@ body.bridge-modal-open {
 .bridge-modal {
   position: fixed;
   inset: 0;
-  z-index: 20;
+  z-index: 60;
   display: none;
 }
 
@@ -540,8 +557,8 @@ body.bridge-modal-open {
   position: relative;
   z-index: 1;
   max-width: 1040px;
-  max-height: calc(100vh - 64px);
-  margin: 32px auto;
+  max-height: calc(100vh - 132px);
+  margin: 96px auto 36px;
   padding: 32px;
   overflow: auto;
   background: #0b1018;
@@ -671,6 +688,10 @@ body.bridge-modal-open {
     right: 20px;
   }
 
+  .subpage-bridge .bridge-topbar {
+    top: 112px;
+  }
+
   .bridge-topbar-left {
     left: 20px;
     right: auto;
@@ -717,5 +738,9 @@ body.bridge-modal-open {
   .bridge-team {
     padding-left: 20px;
     padding-right: 20px;
+  }
+
+  .subpage-bridge .bridge-hero {
+    padding-top: 210px;
   }
 }
