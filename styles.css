@@ -171,6 +171,29 @@ hr {
   gap: 34px;
 }
 
+.hamburger-panel > a + a,
+.hamburger-panel > a + .hamburger-divider,
+.hamburger-panel > .hamburger-divider + .hamburger-lang,
+.hamburger-panel > .hamburger-lang + a,
+.hamburger-panel > .hamburger-lang + .hamburger-divider {
+  position: relative;
+}
+
+.hamburger-panel > a + a::before,
+.hamburger-panel > a + .hamburger-divider::before,
+.hamburger-panel > .hamburger-divider + .hamburger-lang::before,
+.hamburger-panel > .hamburger-lang + a::before,
+.hamburger-panel > .hamburger-lang + .hamburger-divider::before {
+  content: "";
+  position: absolute;
+  left: -17px;
+  top: 50%;
+  width: 1px;
+  height: 24px;
+  background: #111111;
+  transform: translateY(-50%);
+}
+
 .hamburger-panel a {
   display: inline-flex;
   align-items: center;
@@ -186,14 +209,14 @@ hr {
 }
 
 .hamburger-link-featured {
-  padding: 10px 16px;
-  background: #ece7d8;
+  padding: 0;
+  background: transparent;
   color: #111111;
 }
 
 .hamburger-link-featured:hover {
-  opacity: 1;
-  background: #e3dcc8;
+  opacity: 0.65;
+  background: transparent;
 }
 
 .hamburger-divider {
@@ -285,6 +308,26 @@ hr {
   text-align: left;
 }
 
+.featured-event-bridge .featured-event-inner {
+  max-width: 1180px;
+  position: relative;
+  overflow: hidden;
+  padding-right: 250px;
+  background:
+    linear-gradient(rgba(7, 11, 18, 0.76), rgba(7, 11, 18, 0.76)),
+    url("./assets/images/bridge-bg.jpg") center right / cover no-repeat;
+  border-color: rgba(7, 11, 18, 0.92);
+}
+
+.featured-bridge-logo {
+  position: absolute;
+  top: 30px;
+  right: 34px;
+  width: 150px;
+  height: auto;
+  opacity: 0.92;
+}
+
 .featured-event-hero .featured-label,
 .featured-event-hero .featured-event h2,
 .featured-event-hero .featured-event-inner h2,
@@ -304,6 +347,70 @@ hr {
 .featured-event-hero .featured-button:hover {
   background: rgba(255, 255, 255, 0.12);
   color: #ffffff;
+}
+
+.featured-event-recap {
+  padding-top: 26px;
+}
+
+.featured-event-recap .featured-event-inner {
+  max-width: 1180px;
+  background: #f5f1ea;
+  border-color: #ddd5c8;
+}
+
+.featured-recap-grid {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.95fr) minmax(420px, 1.2fr);
+  gap: 28px;
+  align-items: start;
+}
+
+.featured-recap-copy {
+  text-align: left;
+  padding-right: 8px;
+}
+
+.featured-text-small {
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.featured-recap-media {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr 0.8fr;
+  gap: 14px;
+}
+
+.featured-media-card {
+  margin: 0;
+  overflow: hidden;
+  background: #eae4da;
+  border: 1px solid rgba(27, 28, 31, 0.08);
+  min-height: 148px;
+}
+
+.featured-media-card-large {
+  grid-column: 1 / 2;
+  grid-row: 1 / span 2;
+  min-height: 310px;
+}
+
+.featured-media-card-video {
+  grid-column: 2 / span 2;
+  min-height: 172px;
+}
+
+.featured-media-card img,
+.featured-media-card video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.featured-media-card video {
+  background: #111111;
 }
 
 /* Homepage sections */
@@ -775,11 +882,49 @@ hr {
     grid-template-columns: 1fr;
   }
 
+  .featured-recap-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .featured-event-bridge .featured-event-inner {
+    padding-right: 36px;
+    padding-top: 150px;
+  }
+
+  .featured-bridge-logo {
+    top: 26px;
+    right: 26px;
+    width: 118px;
+  }
+
+  .featured-recap-copy {
+    padding-right: 0;
+  }
+
+  .featured-recap-media {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .featured-media-card-large,
+  .featured-media-card-video {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
   .hamburger-panel {
     justify-content: flex-start;
     flex-wrap: wrap;
     gap: 18px 24px;
     padding: 16px 20px;
+  }
+
+  .hamburger-panel > a + a::before,
+  .hamburger-panel > a + .hamburger-divider::before,
+  .hamburger-panel > .hamburger-divider + .hamburger-lang::before,
+  .hamburger-panel > .hamburger-lang + a::before,
+  .hamburger-panel > .hamburger-lang + .hamburger-divider::before {
+    left: -12px;
+    height: 18px;
   }
 
   .hamburger-divider {
@@ -823,5 +968,18 @@ hr {
   .featured-event-inner,
   .featured-announcement {
     padding: 22px;
+  }
+
+  .featured-recap-media {
+    grid-template-columns: 1fr;
+  }
+
+  .featured-media-card {
+    min-height: 200px;
+  }
+
+  .featured-media-card-large,
+  .featured-media-card-video {
+    min-height: 220px;
   }
 }

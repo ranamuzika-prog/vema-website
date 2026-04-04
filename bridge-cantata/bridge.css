@@ -689,7 +689,7 @@ body.bridge-modal-open {
   }
 
   .subpage-bridge .bridge-topbar {
-    top: 112px;
+    top: 148px;
   }
 
   .bridge-topbar-left {
@@ -741,6 +741,6 @@ body.bridge-modal-open {
   }
 
   .subpage-bridge .bridge-hero {
-    padding-top: 210px;
+    padding-top: 270px;
   }
 }
