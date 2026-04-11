@@ -10,11 +10,11 @@ html {
 /* HERO */
 .bridge-hero {
   position: relative;
-  min-height: 85vh;
+  min-height: 80vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 80px 24px;
+  padding: 64px 24px 72px;
   color: #ffffff;
   text-align: center;
   overflow: hidden;
@@ -22,33 +22,34 @@ html {
 }
 
 .subpage-bridge .bridge-hero {
-  padding-top: 228px;
+  padding-top: 210px;
 }
 
 .bridge-topbar {
   position: absolute;
-  top: 28px;
-  right: 32px;
+  top: 44px;
+  right: max(32px, calc(50% - 640px + 24px));
   z-index: 3;
+  opacity: 0.92;
 }
 
 .subpage-bridge .bridge-topbar {
-  top: 120px;
+  top: 132px;
 }
 
 .bridge-topbar-left {
-  left: 32px;
+  left: max(32px, calc(50% - 640px + 24px));
   right: auto;
 }
 
 .bridge-eu-badge {
-  width: clamp(88px, 9.5vw, 124px);
+  width: clamp(76px, 8.2vw, 106px);
   height: auto;
   display: block;
 }
 
 .bridge-dor-badge {
-  width: clamp(102px, 11.5vw, 146px);
+  width: clamp(90px, 9.6vw, 124px);
   height: auto;
   display: block;
 }
@@ -59,10 +60,10 @@ html {
   inset: 0;
   background: linear-gradient(
     to right,
-    rgba(5, 10, 15, 0.82) 0%,
-    rgba(5, 10, 15, 0.62) 42%,
-    rgba(5, 10, 15, 0.30) 72%,
-    rgba(5, 10, 15, 0.16) 100%
+    rgba(5, 10, 15, 0.86) 0%,
+    rgba(5, 10, 15, 0.7) 42%,
+    rgba(5, 10, 15, 0.44) 72%,
+    rgba(5, 10, 15, 0.28) 100%
   );
   z-index: 1;
   pointer-events: none;
@@ -74,9 +75,9 @@ html {
   inset: 0;
   background: radial-gradient(
     ellipse at center,
-    rgba(0, 0, 0, 0.18) 0%,
-    rgba(0, 0, 0, 0.34) 50%,
-    rgba(0, 0, 0, 0.55) 100%
+    rgba(0, 0, 0, 0.14) 0%,
+    rgba(0, 0, 0, 0.3) 46%,
+    rgba(0, 0, 0, 0.58) 100%
   );
   z-index: 1;
   pointer-events: none;
@@ -87,19 +88,19 @@ html {
   z-index: 2;
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 20px 8px;
   text-align: center;
 }
 
 .bridge-logo {
-  width: 180px;
-  margin: -126px auto 28px;
+  width: 208px;
+  margin: -110px auto 34px;
   transform: translateX(-14px);
 }
 
 .bridge-hero-heading {
-  max-width: 980px;
-  margin: 0 auto 26px;
+  max-width: 1040px;
+  margin: 0 auto 30px;
 }
 
 .bridge-title-shared {
@@ -108,10 +109,10 @@ html {
 
 .bridge-title {
   max-width: 1100px;
-  margin: 0 auto 18px;
+  margin: 0 auto 22px;
   font-family: 'SrbijaSans', Arial, sans-serif;
-  font-size: clamp(2.8rem, 5vw, 4.8rem);
-  line-height: 1.05;
+  font-size: clamp(3.1rem, 5.4vw, 5.15rem);
+  line-height: 1.02;
   text-align: center;
   text-wrap: balance;
   color: #ffffff;
@@ -119,29 +120,29 @@ html {
 
 .bridge-title-sub {
   display: block;
-  margin-top: 18px;
+  margin-top: 20px;
   font-family: 'SrbijaSans', Arial, sans-serif;
-  font-size: 0.42em;
+  font-size: 0.44em;
   line-height: 1.15;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.075em;
   text-align: center;
   text-wrap: balance;
 }
 
 .bridge-subtitle {
   max-width: 700px;
-  margin: 0 auto 28px;
+  margin: 0 auto 32px;
   font-family: Arial, sans-serif;
-  font-size: 1.05rem;
-  line-height: 1.7;
+  font-size: 1.12rem;
+  line-height: 1.75;
   text-align: center;
   color: rgba(255, 255, 255, 0.85);
 }
 
 .bridge-meta {
-  margin: 0 auto 28px;
+  margin: 0 auto 30px;
   font-family: Arial, sans-serif;
-  font-size: 0.95rem;
+  font-size: 1rem;
   line-height: 1.4;
   text-align: center;
   color: rgba(255, 255, 255, 0.75);
@@ -150,7 +151,7 @@ html {
 .bridge-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 14px;
+  gap: 16px;
   justify-content: center;
 }
 
@@ -158,11 +159,15 @@ html {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 12px 22px;
+  min-height: 46px;
+  padding: 13px 24px;
   border: 1px solid transparent;
+  border-radius: 999px;
   font-family: 'SrbijaSans', Arial, sans-serif;
   font-weight: 400;
-  transition: all 0.25s ease;
+  letter-spacing: 0.025em;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+  transition: background-color 0.22s ease, color 0.22s ease, border-color 0.22s ease, transform 0.22s ease;
 }
 
 .bridge-btn-primary {
@@ -172,21 +177,22 @@ html {
 }
 
 .bridge-btn-primary:hover {
-  background: #00297d;
-  border-color: #00297d;
-  transform: translateY(-2px);
+  background: #0b46b5;
+  border-color: #0b46b5;
+  transform: translateY(-1px);
 }
 
 .bridge-btn-secondary {
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0.98);
   color: var(--dor-blue);
   border-color: var(--dor-blue);
 }
 
 .bridge-btn-secondary:hover {
-  background: var(--dor-blue);
-  color: #ffffff;
-  transform: translateY(-2px);
+  background: #f1f5ff;
+  color: #002b86;
+  border-color: #002b86;
+  transform: translateY(-1px);
 }
 
 .bridge-eu-note {
@@ -200,7 +206,7 @@ html {
 .bridge-bilingual {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 48px;
+  gap: 52px;
   align-items: start;
 }
 
@@ -209,21 +215,32 @@ html {
 }
 
 .bridge-lang-col-sr {
-  padding-right: 24px;
-  border-right: 1px solid rgba(255, 255, 255, 0.12);
+  position: relative;
+  padding-right: 28px;
+  border-right: 0;
 }
 
-.section-light .bridge-lang-col-sr {
-  border-right-color: rgba(0, 0, 0, 0.12);
+.bridge-lang-col-sr::after {
+  content: "";
+  position: absolute;
+  top: 18px;
+  bottom: 18px;
+  right: 0;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.section-light .bridge-lang-col-sr::after {
+  background: rgba(0, 0, 0, 0.08);
 }
 
 .bridge-lang-col-en {
-  padding-left: 24px;
+  padding-left: 28px;
 }
 
 .bridge-hero-grid {
   align-items: stretch;
-  gap: 56px;
+  gap: 60px;
 }
 
 .bridge-hero-grid .bridge-lang-col-sr,
@@ -253,7 +270,9 @@ html {
 .bridge-intro,
 .section-light,
 .bridge-masterclass {
+  position: relative;
   padding: 120px 24px;
+  overflow: hidden;
 }
 
 .bridge-intro {
@@ -267,9 +286,41 @@ html {
   color: #111111;
 }
 
+.section-light::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 72px;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    rgba(6, 8, 13, 0.16) 0%,
+    rgba(6, 8, 13, 0.06) 24%,
+    rgba(245, 245, 243, 0) 100%
+  );
+}
+
 .bridge-masterclass {
   background: #0a0d14;
   color: #ffffff;
+}
+
+.bridge-masterclass::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 72px;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    rgba(245, 245, 243, 0.42) 0%,
+    rgba(245, 245, 243, 0.12) 26%,
+    rgba(245, 245, 243, 0) 100%
+  );
 }
 
 .bridge-intro-content,
@@ -280,8 +331,8 @@ html {
 }
 
 .bridge-section-head {
-  max-width: 980px;
-  margin: 0 0 42px;
+  max-width: 34rem;
+  margin: 0 0 36px;
 }
 
 .bridge-section-head .section-label {
@@ -318,8 +369,8 @@ html {
   margin: 0;
   font-family: 'SrbijaSans', Arial, sans-serif;
   font-weight: 400;
-  font-size: clamp(2.2rem, 3.6vw, 3.35rem);
-  line-height: 1.12;
+  font-size: clamp(2.05rem, 3.15vw, 3rem);
+  line-height: 1.1;
   text-align: left;
   text-wrap: balance;
 }
@@ -334,8 +385,9 @@ html {
 .bridge-intro p,
 .bridge-why p {
   margin: 0 0 22px;
-  font-size: 1.05rem;
-  line-height: 1.85;
+  font-size: 1.02rem;
+  line-height: 1.82;
+  max-width: 34rem;
 }
 
 .bridge-intro p {
@@ -355,36 +407,39 @@ html {
 
 .masterclass-grid {
   display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 36px;
+  grid-template-columns: minmax(240px, 0.92fr) minmax(0, 1.42fr);
+  gap: 44px;
   align-items: stretch;
 }
 
 .masterclass-info {
-  font-size: 0.95rem;
-  line-height: 1.8;
-  color: rgba(255, 255, 255, 0.92);
+  padding-top: 4px;
+  font-size: 0.94rem;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.82);
+  max-width: 22rem;
 }
 
 .masterclass-info p {
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 
 .masterclass-info strong {
-  color: #ffffff;
+  color: rgba(255, 255, 255, 0.95);
 }
 
 .masterclass-text {
   display: flex;
   flex-direction: column;
   height: 100%;
-  font-size: 1.05rem;
-  line-height: 1.85;
+  font-size: 1.02rem;
+  line-height: 1.8;
   color: rgba(255, 255, 255, 0.88);
+  max-width: 34rem;
 }
 
 .masterclass-text p {
-  margin-bottom: 18px;
+  margin-bottom: 20px;
 }
 
 .bridge-apply {
@@ -399,6 +454,92 @@ html {
 .masterclass-text em {
   color: #d4af6a;
   font-style: normal;
+}
+
+/* PROCESS GALLERY */
+.bridge-process {
+  padding: 112px 24px 124px;
+  background: #ffffff;
+  color: #111111;
+}
+
+.bridge-process-content {
+  max-width: 1360px;
+  margin: 0 auto;
+}
+
+.bridge-process-caption {
+  margin: 0 0 30px;
+  font-family: Arial, sans-serif;
+  font-size: 0.92rem;
+  line-height: 1.4;
+  letter-spacing: 0.06em;
+  text-transform: none;
+  color: rgba(17, 17, 17, 0.58);
+}
+
+.bridge-process-card {
+  margin: 0;
+  overflow: visible;
+  background: transparent;
+}
+
+.bridge-process-stack {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(280px, 1fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.bridge-process-card-hero {
+  aspect-ratio: 4 / 3;
+}
+
+.bridge-process-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  align-items: stretch;
+}
+
+.bridge-process-card-support {
+  aspect-ratio: 4 / 3;
+}
+
+.bridge-process-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.bridge-process-card:hover .bridge-process-image {
+  transform: scale(1.015);
+}
+
+.bridge-process-card-hero .bridge-process-image {
+  object-fit: contain;
+  object-position: 50% 50%;
+}
+
+.bridge-process-card-support .bridge-process-image {
+  object-fit: contain;
+  object-position: 50% 50%;
+}
+
+.bridge-process-image-meeting-2 {
+  object-position: 50% 50%;
+}
+
+.bridge-process-image-meeting-3 {
+  object-fit: cover;
+  object-position: 50% 22%;
+}
+
+.bridge-process-image-meeting-5 {
+  object-position: 50% 50%;
 }
 
 /* TEAM */
@@ -511,17 +652,7 @@ html {
   font-size: 0.95rem;
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.9);
-  opacity: 0;
-  transform: translateY(14px);
-  transition: opacity 0.25s ease, transform 0.25s ease;
-}
-
-.bridge-team-card:hover .bridge-team-overlay,
-.bridge-team-card:focus-visible .bridge-team-overlay,
-.bridge-team-feature:hover .bridge-team-overlay,
-.bridge-team-feature:focus-visible .bridge-team-overlay {
-  opacity: 1;
-  transform: translateY(0);
+  display: none;
 }
 
 .bridge-team-card:focus-visible,
@@ -532,7 +663,7 @@ html {
 
 .bridge-team-body {
   display: block;
-  padding: 24px 0 0;
+  padding: 28px 0 0;
 }
 
 .bridge-team-name,
@@ -542,32 +673,56 @@ html {
 }
 
 .bridge-team-name {
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   font-family: 'SrbijaSans', Arial, sans-serif;
   font-size: clamp(1.5rem, 2vw, 1.9rem);
   line-height: 1.1;
   color: #ffffff;
 }
 
+.bridge-team-name-trigger {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  transition: opacity 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+.bridge-team-name-trigger:hover,
+.bridge-team-name-trigger:focus-visible {
+  opacity: 0.88;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.14em;
+  text-decoration-color: rgba(255, 255, 255, 0.28);
+}
+
+.bridge-team-name-trigger:focus-visible {
+  outline: none;
+}
+
 .bridge-team-role {
-  margin-bottom: 12px;
+  margin-bottom: 18px;
   font-family: Arial, sans-serif;
-  font-size: 0.95rem;
-  letter-spacing: 0.02em;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .bridge-team-quote {
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
   font-family: Arial, sans-serif;
-  font-size: 1rem;
-  line-height: 1.7;
-  color: rgba(255, 255, 255, 0.84);
+  font-size: 0.98rem;
+  line-height: 1.78;
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .bridge-team-quote-compact {
   font-size: 0.88rem;
-  line-height: 1.5;
+  line-height: 1.62;
 }
 
 .bridge-team .bridge-section-head h2 {
@@ -652,6 +807,14 @@ body.bridge-modal-open {
   aspect-ratio: 16 / 7;
 }
 
+.bridge-modal-photo-mina {
+  width: min(100%, 420px);
+  max-height: 220px;
+  margin: 0 auto;
+  aspect-ratio: 16 / 7;
+  object-position: 42% 26%;
+}
+
 .bridge-modal-bilingual {
   gap: 36px;
 }
@@ -725,6 +888,10 @@ body.bridge-modal-open {
     border-bottom-color: rgba(0, 0, 0, 0.12);
   }
 
+  .bridge-lang-col-sr::after {
+    display: none;
+  }
+
   .bridge-lang-col-en {
     padding-left: 0;
   }
@@ -735,12 +902,12 @@ body.bridge-modal-open {
   }
 
   .bridge-topbar {
-    top: 20px;
+    top: 24px;
     right: 20px;
   }
 
   .subpage-bridge .bridge-topbar {
-    top: 148px;
+    top: 154px;
   }
 
   .bridge-topbar-left {
@@ -749,24 +916,37 @@ body.bridge-modal-open {
   }
 
   .bridge-eu-badge {
-    width: clamp(76px, 21vw, 98px);
+    width: clamp(68px, 19vw, 88px);
   }
 
   .bridge-dor-badge {
-    width: clamp(88px, 24vw, 112px);
+    width: clamp(78px, 21vw, 98px);
   }
 
   .bridge-title {
-    font-size: clamp(2.4rem, 9vw, 4rem);
+    font-size: clamp(2.6rem, 9vw, 4.15rem);
   }
 
   .bridge-title-sub {
-    font-size: 0.6em;
+    font-size: 0.58em;
   }
 
   .masterclass-grid {
     grid-template-columns: 1fr;
     gap: 30px;
+  }
+
+  .bridge-process {
+    padding: 88px 20px 96px;
+  }
+
+  .bridge-process-stack {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .bridge-process-grid {
+    gap: 18px;
   }
 
   .bridge-modal-panel {
@@ -808,6 +988,6 @@ body.bridge-modal-open {
   }
 
   .subpage-bridge .bridge-hero {
-    padding-top: 270px;
+    padding-top: 258px;
   }
 }
