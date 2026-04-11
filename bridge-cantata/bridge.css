@@ -413,6 +413,13 @@ html {
   margin: 0 auto;
 }
 
+.bridge-team-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+  margin-top: 18px;
+}
+
 .bridge-team-card {
   width: 100%;
   padding: 0;
@@ -425,7 +432,7 @@ html {
 
 .bridge-team-feature {
   width: 100%;
-  margin-top: 18px;
+  margin-top: 0;
   padding: 0;
   border: 0;
   background: transparent;
@@ -439,18 +446,10 @@ html {
   background: #121821;
 }
 
-.bridge-team-photo-wrap-wide {
-  width: 100%;
-}
-
 .bridge-team-photo {
   width: 100%;
   aspect-ratio: 3 / 4;
   object-fit: cover;
-}
-
-.bridge-team-photo-wrap-wide .bridge-team-photo {
-  aspect-ratio: 16 / 7;
 }
 
 .bridge-team-overlay {
@@ -465,12 +464,6 @@ html {
   opacity: 0;
   transform: translateY(14px);
   transition: opacity 0.25s ease, transform 0.25s ease;
-}
-
-.bridge-team-overlay-wide {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px;
 }
 
 .bridge-team-card:hover .bridge-team-overlay,
@@ -524,10 +517,6 @@ html {
 
 .bridge-team .bridge-section-head h2 {
   color: #ffffff;
-}
-
-.bridge-team-meta {
-  margin-top: 28px;
 }
 
 /* MODAL */
@@ -723,11 +712,11 @@ body.bridge-modal-open {
     padding: 24px;
   }
 
-  .bridge-team-overlay-wide {
+  .bridge-modal-grid {
     grid-template-columns: 1fr;
   }
 
-  .bridge-modal-grid {
+  .bridge-team-grid {
     grid-template-columns: 1fr;
   }
 
