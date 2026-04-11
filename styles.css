@@ -239,7 +239,7 @@ hr {
 
 /* Homepage hero */
 .hero {
-  padding: 156px 0 28px;
+  padding: 156px 0 0;
   background: #ffffff;
 }
 
@@ -301,31 +301,52 @@ hr {
 }
 
 .featured-event-hero .featured-event-inner {
-  max-width: 860px;
-  margin: 0 auto;
+  max-width: none;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
   background: #243f78;
   border-color: #243f78;
   text-align: left;
+  border-left: 0;
+  border-right: 0;
 }
 
 .featured-event-bridge .featured-event-inner {
-  max-width: 1180px;
   position: relative;
   overflow: hidden;
-  padding-right: 250px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  padding-left: max(36px, calc((100vw - var(--container)) / 2 + 36px));
+  padding-right: max(250px, calc((100vw - var(--container)) / 2 + 250px));
   background:
     linear-gradient(rgba(7, 11, 18, 0.76), rgba(7, 11, 18, 0.76)),
     url("./assets/images/bridge-bg.jpg") center right / cover no-repeat;
   border-color: rgba(7, 11, 18, 0.92);
 }
 
-.featured-bridge-logo {
+.featured-bridge-logos {
   position: absolute;
-  top: 30px;
-  right: 34px;
-  width: 150px;
+  top: 42px;
+  right: max(36px, calc((100vw - var(--container)) / 2 + 36px));
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 18px;
+}
+
+.featured-bridge-logo {
+  display: none !important;
+}
+
+.featured-bridge-support-logo {
+  width: 56px;
   height: auto;
-  opacity: 0.92;
+  object-fit: contain;
+}
+
+.featured-bridge-support-logo--district {
+  width: 96px;
 }
 
 .featured-event-hero .featured-label,
@@ -336,7 +357,7 @@ hr {
 }
 
 .featured-event-hero .featured-label {
-  color: rgba(255, 255, 255, 0.72);
+  color: #fff200;
 }
 
 .featured-event-hero .featured-button {
@@ -350,13 +371,34 @@ hr {
 }
 
 .featured-event-recap {
-  padding-top: 26px;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.featured-event-hero.featured-event-bridge,
+.featured-event-recap {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.featured-event-hero.featured-event-bridge {
+  padding-bottom: 0;
 }
 
 .featured-event-recap .featured-event-inner {
-  max-width: 1180px;
+  max-width: none;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  position: relative;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  padding-left: max(36px, calc((100vw - var(--container)) / 2 + 36px));
+  padding-right: max(36px, calc((100vw - var(--container)) / 2 + 36px));
   background: #f5f1ea;
   border-color: #ddd5c8;
+  border-left: 0;
+  border-right: 0;
 }
 
 .featured-recap-grid {
@@ -369,6 +411,45 @@ hr {
 .featured-recap-copy {
   text-align: left;
   padding-right: 8px;
+}
+
+.featured-recap-media-top {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+}
+
+.featured-recap-media-bottom {
+  grid-column: 1 / 3;
+  grid-row: 2;
+  width: min(100%, 620px);
+  grid-template-columns: 1.08fr 1.4fr;
+  gap: 16px;
+  align-self: end;
+  justify-self: start;
+  margin-top: -12px;
+}
+
+.featured-recap-support {
+  position: absolute;
+  top: 42px;
+  right: max(36px, calc((100vw - var(--container)) / 2 + 28px));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  width: 220px;
+}
+
+.featured-support-logo {
+  width: 100%;
+  max-width: 150px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.featured-support-logo--wide {
+  max-width: 220px;
 }
 
 .featured-text-small {
@@ -409,8 +490,91 @@ hr {
   object-fit: cover;
 }
 
+.featured-recap-media-bottom .featured-media-card {
+  min-height: 0;
+  align-self: end;
+}
+
+.featured-recap-media-bottom .featured-media-card:first-child {
+  aspect-ratio: 1.02 / 1;
+}
+
+.featured-recap-media-bottom .featured-media-card:last-child {
+  aspect-ratio: 1.26 / 1;
+}
+
 .featured-media-card video {
   background: #111111;
+}
+
+.festival-band {
+  background: #f3d8d5;
+  border-top: 1px solid rgba(139, 30, 30, 0.12);
+  border-bottom: 1px solid rgba(139, 30, 30, 0.12);
+}
+
+.festival-band-inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 48px var(--pad);
+  display: grid;
+  grid-template-columns: minmax(0, 680px) auto;
+  align-items: start;
+  gap: 40px;
+}
+
+.festival-band-copy {
+  width: 100%;
+  text-align: left;
+}
+
+.festival-band-kicker {
+  margin: 0 0 10px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #8b1e1e;
+}
+
+.festival-band-copy h2 {
+  margin-bottom: 16px;
+  max-width: none;
+  font-size: clamp(1.7rem, 3vw, 2.35rem);
+  line-height: 1.05;
+}
+
+.festival-band-copy p {
+  max-width: 62ch;
+  font-size: 1.03rem;
+  line-height: 1.82;
+  color: #4f4040;
+}
+
+.festival-band-posters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  align-items: flex-start;
+}
+
+.festival-poster-card {
+  margin: 0;
+  width: 180px;
+}
+
+.festival-poster-card img {
+  width: 100%;
+  display: block;
+  border: 1px solid rgba(139, 30, 30, 0.18);
+  box-shadow: 0 10px 24px rgba(95, 40, 40, 0.08);
+}
+
+.festival-poster-card figcaption {
+  margin-top: 10px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #742121;
 }
 
 /* Homepage sections */
@@ -736,6 +900,14 @@ hr {
   border: 1px solid #d8d2c8;
 }
 
+.hero .featured-event-hero.featured-event-bridge {
+  padding: 22px 0 0;
+}
+
+.hero .featured-event-recap {
+  padding: 0;
+}
+
 .featured-label {
   margin: 0 0 10px;
   font-size: 0.95rem;
@@ -886,15 +1058,48 @@ hr {
     grid-template-columns: 1fr;
   }
 
+  .featured-recap-media-top,
+  .featured-recap-media-bottom,
+  .featured-recap-support {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .featured-recap-support {
+    position: static;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 18px;
+    width: auto;
+    padding-top: 0;
+  }
+
+  .featured-support-logo {
+    max-width: 140px;
+  }
+
   .featured-event-bridge .featured-event-inner {
+    width: auto;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 36px;
     padding-right: 36px;
     padding-top: 150px;
   }
 
-  .featured-bridge-logo {
+  .featured-bridge-logos {
     top: 26px;
     right: 26px;
-    width: 118px;
+  }
+
+  .festival-band-inner {
+    display: block;
+    padding: 36px 28px;
+  }
+
+  .festival-band-posters {
+    margin-top: 24px;
   }
 
   .featured-recap-copy {

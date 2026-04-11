@@ -3,6 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GZ0QS39K0X"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-GZ0QS39K0X');
+  </script>
   <title>VEMA – Vojvođansko udruženje za ranu muziku</title>
   <meta name="description" content="VEMA — Vojvođansko udruženje za ranu muziku. Koncerti, edukacija, istraživanje i projekti kulturnog nasleđa u Novom Sadu i Vojvodini." />
   <link rel="stylesheet" href="/styles.css" />
@@ -22,8 +29,6 @@
     <a href="/early-music-day/index.html">Dan rane muzike</a>
     <a href="https://www.danibaroknemuzike.org" target="_blank" rel="noopener noreferrer">Dani barokne muzike</a>
     <a href="/bridge-cantata/index.html" class="hamburger-link-featured">Bridge Cantata</a>
-
-    <div class="hamburger-divider"></div>
 
     <div class="hamburger-lang">
       <a href="/index.html" aria-label="Srpski">🇷🇸 SR</a>
@@ -51,7 +56,10 @@
 
       <section class="featured-event featured-event-hero featured-event-bridge">
         <div class="featured-event-inner">
-          <img src="./assets/images/bridge-logo.png" alt="Bridge Cantata logo" class="featured-bridge-logo">
+          <div class="featured-bridge-logos" aria-label="Project partner logos">
+            <img src="./assets/images/eu-flag.png" alt="European Union logo" class="featured-bridge-support-logo">
+            <img src="./assets/images/district-of-reconciliation-logo.png" alt="District of Reconciliation logo" class="featured-bridge-support-logo featured-bridge-support-logo--district">
+          </div>
           <p class="featured-label">Bridge Cantata</p>
           <h2>9. maj 2026 — The Bridge Cantata</h2>
           <p class="featured-text">
@@ -72,7 +80,7 @@
           <div class="featured-recap-grid">
             <div class="featured-recap-copy">
               <p class="featured-label">Održani događaj</p>
-              <h2>21. mart 2026 — Dan rane muzike</h2>
+              <h2>21. mart 2026 — Dan&nbsp;rane&nbsp;muzike</h2>
               <p class="featured-text">
                 VEMA je obeležila Dan rane muzike koncertom, masterklasom i pratećim programom u Novom Sadu.
               </p>
@@ -83,7 +91,7 @@
               <a href="https://vema.org.rs/early-music-day/" class="featured-button">Detalji programa →</a>
             </div>
 
-            <div class="featured-recap-media">
+            <div class="featured-recap-media featured-recap-media-top">
               <figure class="featured-media-card featured-media-card-large">
                 <img src="./assets/images/early-music-day/concert-2.jpg" alt="Izvođači na koncertu Dan rane muzike u Novom Sadu">
               </figure>
@@ -101,7 +109,9 @@
               <figure class="featured-media-card">
                 <img src="./assets/images/early-music-day/concert-1.jpg" alt="Publika na koncertu Dan rane muzike">
               </figure>
+            </div>
 
+            <div class="featured-recap-media featured-recap-media-bottom">
               <figure class="featured-media-card">
                 <img src="./assets/images/early-music-day/image111.jpg" alt="Predavanje i radionica u okviru programa Dan rane muzike">
               </figure>
@@ -110,12 +120,49 @@
                 <img src="./assets/images/early-music-day/image089.jpg" alt="Publika tokom radionice i predavanja">
               </figure>
             </div>
+
+            <aside class="featured-recap-support" aria-label="Program support logos">
+              <img src="./assets/images/early-music-day-support-eu-goethe.png" alt="Funded by the European Union and Goethe-Institut logos" class="featured-support-logo featured-support-logo--wide">
+              <img src="./assets/images/early-music-day-support-spain-aecid.png" alt="Embassy of Spain in Serbia and AECID logos" class="featured-support-logo featured-support-logo--wide">
+            </aside>
           </div>
         </div>
       </section>
     </div>
   </div>
 </section>
+
+<section class="festival-band">
+  <div class="festival-band-inner">
+    <div class="festival-band-copy">
+      <p class="festival-band-kicker">Od 2012</p>
+      <h2>Dani barokne muzike</h2>
+      <p>
+        <i>Dani barokne muzike</i> je festivalski program koji VEMA razvija od 2012. godine,
+        okupljajući izvođače, ansamble i publiku oko rane i barokne muzike u Novom Sadu.
+        Kroz različita izdanja, festival gradi kontinuitet, saradnje i prepoznatljiv identitet.
+      </p>
+    </div>
+
+    <div class="festival-band-posters" aria-label="Posteri festivalskih izdanja">
+      <figure class="festival-poster-card">
+        <img src="./assets/images/dani-barokne-muzike-2012.jpg" alt="Poster festivala Dani barokne muzike u Novom Sadu 2012">
+        <figcaption>2012</figcaption>
+      </figure>
+
+      <figure class="festival-poster-card">
+        <img src="./assets/images/dani-barokne-muzike-2013.jpg" alt="Poster festivala Dani barokne muzike u Novom Sadu 2013">
+        <figcaption>2013</figcaption>
+      </figure>
+
+      <figure class="festival-poster-card">
+        <img src="./assets/images/dani-barokne-muzike-2014.jpg" alt="Poster festivala Dani barokne muzike u Novom Sadu 2014">
+        <figcaption>2014</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
     <!-- ABOUT -->
     <section id="about" class="section">
       <div class="container">
