@@ -413,21 +413,71 @@ html {
   margin: 0 auto;
 }
 
-.bridge-team-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 32px;
+.bridge-team-carousel {
+  position: relative;
   margin-top: 18px;
 }
 
+.bridge-team-viewport {
+  overflow: hidden;
+}
+
+.bridge-team-track {
+  display: flex;
+  transition: transform 0.35s ease;
+}
+
 .bridge-team-card {
-  width: 100%;
-  padding: 0;
+  flex: 0 0 50%;
+  min-width: 0;
+  padding: 0 16px;
   border: 0;
   background: transparent;
   color: inherit;
   text-align: left;
   cursor: pointer;
+}
+
+.bridge-team-track .bridge-team-card:first-child {
+  padding-left: 0;
+}
+
+.bridge-team-track .bridge-team-card:last-child {
+  padding-right: 0;
+}
+
+.bridge-team-nav {
+  position: absolute;
+  top: 32%;
+  z-index: 2;
+  width: 52px;
+  height: 52px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  background: rgba(7, 11, 17, 0.86);
+  color: #ffffff;
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease, background 0.2s ease;
+}
+
+.bridge-team-nav:hover:not(:disabled) {
+  transform: translateY(-1px);
+  background: rgba(17, 24, 37, 0.96);
+}
+
+.bridge-team-nav:disabled {
+  opacity: 0.28;
+  cursor: default;
+}
+
+.bridge-team-nav-prev {
+  left: -26px;
+}
+
+.bridge-team-nav-next {
+  right: -26px;
 }
 
 .bridge-team-feature {
@@ -515,6 +565,11 @@ html {
   color: rgba(255, 255, 255, 0.84);
 }
 
+.bridge-team-quote-compact {
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
 .bridge-team .bridge-section-head h2 {
   color: #ffffff;
 }
@@ -587,6 +642,13 @@ body.bridge-modal-open {
 }
 
 .bridge-modal-photo-wide {
+  aspect-ratio: 16 / 7;
+}
+
+.bridge-modal-photo-david {
+  width: min(100%, 420px);
+  max-height: 220px;
+  margin: 0 auto;
   aspect-ratio: 16 / 7;
 }
 
@@ -716,8 +778,24 @@ body.bridge-modal-open {
     grid-template-columns: 1fr;
   }
 
-  .bridge-team-grid {
-    grid-template-columns: 1fr;
+  .bridge-team-card {
+    flex-basis: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .bridge-team-nav {
+    top: 24%;
+    width: 44px;
+    height: 44px;
+  }
+
+  .bridge-team-nav-prev {
+    left: -10px;
+  }
+
+  .bridge-team-nav-next {
+    right: -10px;
   }
 
   .bridge-hero,
