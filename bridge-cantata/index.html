@@ -372,11 +372,29 @@
 
         <div class="bridge-media-grid">
           <article class="bridge-media-card">
-            <p class="bridge-fact-label">Video odlomci</p>
-            <h3>Proba i izvođenje</h3>
+            <p class="bridge-fact-label">Video izvođenja</p>
+            <h3>Pogledajte Davidovu kompoziciju</h3>
             <p>
-              Ovaj blok je pripremljen za kratke video odlomke sa proba i završnog izvođenja čim MP4 fajlovi budu dodati u
-              <code>assets/videos/bridge-cantata/</code>.
+              Snimak izvođenja kompozicije Davida Mastikose sada je dostupan na YouTube-u kao deo završnog programa
+              projekta <i>Bridge Cantata</i>.
+            </p>
+            <a
+              href="https://www.youtube.com/watch?si=HNMZdzRzcVfAC-pf&amp;v=WFrgj14TYg4&amp;feature=youtu.be"
+              class="bridge-video-thumb-link"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Pogledajte video izvođenja kompozicije Davida Mastikose na YouTube-u"
+            >
+              <img
+                src="../assets/images/bridge-cantata/performance-video-thumbnail.png"
+                alt="Video najava za izvođenje kompozicije Davida Mastikose u okviru projekta Bridge Cantata"
+                class="bridge-video-thumb"
+              >
+            </a>
+            <p class="bridge-media-link">
+              <a href="https://www.youtube.com/watch?si=HNMZdzRzcVfAC-pf&amp;v=WFrgj14TYg4&amp;feature=youtu.be" target="_blank" rel="noopener noreferrer">
+                Otvori video na YouTube-u
+              </a>
             </p>
           </article>
 
@@ -398,9 +416,14 @@
             <p class="bridge-fact-label">Dodatne fotografije</p>
             <h3>Probe, izvođenje, volonteri</h3>
             <p>
-              Galerije proba i završnog izvođenja su sada postavljene. Stranica ostaje spremna za naredne blokove:
-              online sastanke, volonterski rad i dodatnu dokumentaciju procesa.
+              Galerije proba i završnog izvođenja su sada postavljene. Ovaj izbor ostavlja još prostora za naredne
+              blokove: online sastanke, volonterski rad i dodatnu dokumentaciju procesa.
             </p>
+            <div class="bridge-media-photo-strip" aria-label="Pregled dodatnih fotografija sa završnog izvođenja">
+              <img src="../assets/images/bridge-cantata/concert/image038.jpg" alt="Ansambl tokom koncertnog izvođenja projekta Bridge Cantata" class="bridge-media-photo">
+              <img src="../assets/images/bridge-cantata/concert/image081.jpg" alt="Izvođačica u plesnom segmentu tokom projekta Bridge Cantata" class="bridge-media-photo">
+              <img src="../assets/images/bridge-cantata/concert/image131.jpg" alt="Grupni portret učesnika projekta Bridge Cantata nakon izvođenja" class="bridge-media-photo">
+            </div>
           </article>
         </div>
       </div>
@@ -601,10 +624,27 @@
     </div>
   </div>
 
+  <div class="bridge-modal" id="gallery-lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="gallery-lightbox-title">
+    <div class="bridge-modal-backdrop" data-modal-close></div>
+    <div class="bridge-modal-panel bridge-modal-panel-gallery">
+      <button type="button" class="bridge-modal-close" data-modal-close aria-label="Zatvori">×</button>
+      <div class="bridge-modal-stack bridge-modal-stack-gallery">
+        <img src="" alt="" class="bridge-modal-photo bridge-modal-photo-gallery" id="gallery-lightbox-image">
+        <div class="bridge-modal-copy bridge-modal-copy-gallery">
+          <p class="section-label">Galerija</p>
+          <h2 id="gallery-lightbox-title">Fotografija projekta</h2>
+          <p class="bridge-modal-role" id="gallery-lightbox-caption"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
     (() => {
       const modals = document.querySelectorAll(".bridge-modal");
       const carousels = document.querySelectorAll("[data-team-carousel]");
+      const lightboxImage = document.getElementById("gallery-lightbox-image");
+      const lightboxCaption = document.getElementById("gallery-lightbox-caption");
       const openModal = (id) => {
         const modal = document.getElementById(id);
         if (!modal) return;
@@ -622,6 +662,28 @@
 
       document.querySelectorAll("[data-modal-target]").forEach((trigger) => {
         trigger.addEventListener("click", () => openModal(trigger.dataset.modalTarget));
+      });
+
+      document.querySelectorAll(".bridge-gallery-image, .bridge-media-photo").forEach((image) => {
+        image.tabIndex = 0;
+        image.setAttribute("role", "button");
+
+        const openLightbox = () => {
+          const figure = image.closest("figure");
+          const caption = figure?.querySelector("figcaption")?.textContent?.trim() || image.alt || "";
+          lightboxImage.src = image.currentSrc || image.src;
+          lightboxImage.alt = image.alt || "";
+          lightboxCaption.textContent = caption;
+          openModal("gallery-lightbox");
+        };
+
+        image.addEventListener("click", openLightbox);
+        image.addEventListener("keydown", (event) => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            openLightbox();
+          }
+        });
       });
 
       modals.forEach((modal) => {

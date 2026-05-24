@@ -373,11 +373,29 @@
 
         <div class="bridge-media-grid">
           <article class="bridge-media-card">
-            <p class="bridge-fact-label">Video excerpts</p>
-            <h3>Rehearsal and performance</h3>
+            <p class="bridge-fact-label">Performance video</p>
+            <h3>Watch David's composition</h3>
             <p>
-              This block is ready for short video excerpts from rehearsals and the final performance as soon as MP4 files are added to
-              <code>assets/videos/bridge-cantata/</code>.
+              A recording of David Mastikosa's composition is now available on YouTube as part of the final
+              <i>Bridge Cantata</i> performance.
+            </p>
+            <a
+              href="https://www.youtube.com/watch?si=HNMZdzRzcVfAC-pf&amp;v=WFrgj14TYg4&amp;feature=youtu.be"
+              class="bridge-video-thumb-link"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Watch the performance video of David Mastikosa's composition on YouTube"
+            >
+              <img
+                src="../assets/images/bridge-cantata/performance-video-thumbnail.png"
+                alt="Video thumbnail for the performance of David Mastikosa's composition in The Bridge Cantata"
+                class="bridge-video-thumb"
+              >
+            </a>
+            <p class="bridge-media-link">
+              <a href="https://www.youtube.com/watch?si=HNMZdzRzcVfAC-pf&amp;v=WFrgj14TYg4&amp;feature=youtu.be" target="_blank" rel="noopener noreferrer">
+                Open the video on YouTube
+              </a>
             </p>
           </article>
 
@@ -399,9 +417,14 @@
             <p class="bridge-fact-label">Additional photos</p>
             <h3>Rehearsals, performance, volunteers</h3>
             <p>
-              Rehearsal and performance galleries are now in place. The page is still ready for the next additions:
-              online meetings, volunteer work, and further process documentation.
+              Rehearsal and performance galleries are now in place. This selection still leaves room for the next
+              additions: online meetings, volunteer work, and further process documentation.
             </p>
+            <div class="bridge-media-photo-strip" aria-label="Preview of additional final performance photographs">
+              <img src="../assets/images/bridge-cantata/concert/image038.jpg" alt="Ensemble during the concert performance of The Bridge Cantata" class="bridge-media-photo">
+              <img src="../assets/images/bridge-cantata/concert/image081.jpg" alt="Performer in a dance segment during The Bridge Cantata" class="bridge-media-photo">
+              <img src="../assets/images/bridge-cantata/concert/image131.jpg" alt="Group portrait of participants in The Bridge Cantata after the performance" class="bridge-media-photo">
+            </div>
           </article>
         </div>
       </div>
@@ -604,10 +627,27 @@
     </div>
   </div>
 
+  <div class="bridge-modal" id="gallery-lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="gallery-lightbox-title">
+    <div class="bridge-modal-backdrop" data-modal-close></div>
+    <div class="bridge-modal-panel bridge-modal-panel-gallery">
+      <button type="button" class="bridge-modal-close" data-modal-close aria-label="Close">×</button>
+      <div class="bridge-modal-stack bridge-modal-stack-gallery">
+        <img src="" alt="" class="bridge-modal-photo bridge-modal-photo-gallery" id="gallery-lightbox-image">
+        <div class="bridge-modal-copy bridge-modal-copy-gallery">
+          <p class="section-label">Gallery</p>
+          <h2 id="gallery-lightbox-title">Project photograph</h2>
+          <p class="bridge-modal-role" id="gallery-lightbox-caption"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
     (() => {
       const modals = document.querySelectorAll(".bridge-modal");
       const carousels = document.querySelectorAll("[data-team-carousel]");
+      const lightboxImage = document.getElementById("gallery-lightbox-image");
+      const lightboxCaption = document.getElementById("gallery-lightbox-caption");
       const openModal = (id) => {
         const modal = document.getElementById(id);
         if (!modal) return;
@@ -625,6 +665,28 @@
 
       document.querySelectorAll("[data-modal-target]").forEach((trigger) => {
         trigger.addEventListener("click", () => openModal(trigger.dataset.modalTarget));
+      });
+
+      document.querySelectorAll(".bridge-gallery-image, .bridge-media-photo").forEach((image) => {
+        image.tabIndex = 0;
+        image.setAttribute("role", "button");
+
+        const openLightbox = () => {
+          const figure = image.closest("figure");
+          const caption = figure?.querySelector("figcaption")?.textContent?.trim() || image.alt || "";
+          lightboxImage.src = image.currentSrc || image.src;
+          lightboxImage.alt = image.alt || "";
+          lightboxCaption.textContent = caption;
+          openModal("gallery-lightbox");
+        };
+
+        image.addEventListener("click", openLightbox);
+        image.addEventListener("keydown", (event) => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            openLightbox();
+          }
+        });
       });
 
       modals.forEach((modal) => {

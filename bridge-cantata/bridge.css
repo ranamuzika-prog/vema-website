@@ -1005,48 +1005,33 @@ body.bridge-modal-open {
 }
 
 .bridge-gallery {
-  display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  gap: 18px;
+  column-count: 2;
+  column-gap: 24px;
 }
 
-.bridge-gallery-card {
-  grid-column: span 4;
-  margin: 0;
-}
-
-.bridge-gallery-card-large {
-  grid-column: span 6;
-}
-
+.bridge-gallery-card,
+.bridge-gallery-card-large,
 .bridge-gallery-card-tall {
-  grid-column: span 6;
-}
-
-.bridge-gallery-rehearsal .bridge-gallery-card:nth-child(6),
-.bridge-gallery-rehearsal .bridge-gallery-card:nth-child(7),
-.bridge-gallery-rehearsal .bridge-gallery-card:nth-child(8),
-.bridge-gallery-rehearsal .bridge-gallery-card:nth-child(9),
-.bridge-gallery-rehearsal .bridge-gallery-card:nth-child(10) {
-  grid-column: span 4;
+  display: inline-block;
+  width: 100%;
+  margin: 0 0 24px;
+  break-inside: avoid;
 }
 
 .bridge-gallery-image {
   width: 100%;
-  height: 320px;
   display: block;
-  object-fit: cover;
+  height: auto;
   background: #d9dde4;
+  cursor: zoom-in;
 }
 
 .bridge-gallery-card-large .bridge-gallery-image {
-  height: 420px;
+  height: auto;
 }
 
 .bridge-gallery-card-tall .bridge-gallery-image {
-  height: 420px;
-  object-fit: cover;
-  object-position: center top;
+  height: auto;
 }
 
 .bridge-gallery-rehearsal .bridge-gallery-card:nth-child(6) .bridge-gallery-image,
@@ -1054,7 +1039,7 @@ body.bridge-modal-open {
 .bridge-gallery-rehearsal .bridge-gallery-card:nth-child(8) .bridge-gallery-image,
 .bridge-gallery-rehearsal .bridge-gallery-card:nth-child(9) .bridge-gallery-image,
 .bridge-gallery-rehearsal .bridge-gallery-card:nth-child(10) .bridge-gallery-image {
-  height: 360px;
+  height: auto;
 }
 
 .bridge-gallery-card figcaption {
@@ -1063,6 +1048,12 @@ body.bridge-modal-open {
   font-size: 0.92rem;
   line-height: 1.6;
   color: rgba(17, 17, 17, 0.7);
+}
+
+.bridge-gallery-image:focus-visible,
+.bridge-media-photo:focus-visible {
+  outline: 2px solid var(--dor-blue);
+  outline-offset: 4px;
 }
 
 .bridge-media {
@@ -1099,6 +1090,78 @@ body.bridge-modal-open {
   font-weight: 600;
   text-decoration-thickness: 1px;
   text-underline-offset: 0.16em;
+}
+
+.bridge-video-thumb-link {
+  display: block;
+  margin-top: 20px;
+  overflow: hidden;
+  border-radius: 18px;
+  box-shadow: 0 16px 36px rgba(12, 18, 26, 0.14);
+}
+
+.bridge-video-thumb-link:focus-visible {
+  outline: 2px solid var(--dor-blue);
+  outline-offset: 4px;
+}
+
+.bridge-video-thumb {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.bridge-video-thumb-link:hover .bridge-video-thumb,
+.bridge-video-thumb-link:focus-visible .bridge-video-thumb {
+  transform: scale(1.02);
+  opacity: 0.96;
+}
+
+.bridge-media-photo-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.bridge-media-photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  background: #d9dde4;
+  cursor: zoom-in;
+}
+
+.bridge-modal-panel-gallery {
+  max-width: min(1240px, calc(100vw - 48px));
+  padding: 28px 28px 24px;
+}
+
+.bridge-modal-stack-gallery {
+  gap: 18px;
+}
+
+.bridge-modal-photo-gallery {
+  width: 100%;
+  max-height: calc(100vh - 240px);
+  aspect-ratio: auto;
+  object-fit: contain;
+  background: #06090f;
+}
+
+.bridge-modal-copy-gallery h2 {
+  margin-bottom: 0;
+}
+
+.bridge-modal-copy-gallery .bridge-modal-role {
+  margin-bottom: 0;
+  font-size: 1rem;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  color: rgba(255, 255, 255, 0.82);
 }
 
 /* FOOTER */
@@ -1222,20 +1285,14 @@ body.bridge-modal-open {
   }
 
   .bridge-gallery {
-    grid-template-columns: 1fr;
-  }
-
-  .bridge-gallery-card,
-  .bridge-gallery-card-large,
-  .bridge-gallery-card-tall {
-    grid-column: auto;
+    column-count: 1;
+    column-gap: 0;
   }
 
   .bridge-gallery-image,
   .bridge-gallery-card-large .bridge-gallery-image,
   .bridge-gallery-card-tall .bridge-gallery-image {
     height: auto;
-    aspect-ratio: 4 / 3;
   }
 
   .bridge-team-card {
